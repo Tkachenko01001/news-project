@@ -1,5 +1,6 @@
 .header {
   padding: 24px 0;
+  background-color: $light-color;
   &__logo {
     font-family: 'Manrope';
     font-style: normal;
@@ -7,34 +8,21 @@
     font-size: 24px;
     line-height: 1.37;
     color: $dark-color;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       font-size: 32px;
       line-height: 1.37;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       font-size: 42px;
       line-height: 1.35;
     }
   }
 }
-.header__container {
+.header__nav {
+  position: relative;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-}
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
-.nav-menu__button {
-  width: 40px;
-  height: 40px;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  background: none;
-  color: #fff;
 }
 .nav-menu__link {
   display: block;
@@ -62,44 +50,45 @@
   background-color: $accent-color;
   border-radius: 2px;
 }
-.mobile-menu__button {
-  width: 24px;
+.menu__button {
   height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   padding: 0;
   margin: 0;
   cursor: pointer;
-  background: none;
+  background: transparent;
 }
-.mobile-menu__container .mobile-menu__button {
+.menu-container {
   position: absolute;
-  top: 24px;
-  right: 16px;
-  color: #fff;
-}
-.mobile-menu {
-  position: fixed;
-  top: 0;
+  top: 100%;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background-color: $light-color;
   z-index: 999;
-  transform: translateX(100%);
-  transition: -webkit-transform 250ms var(--animation-function);
-  transition: transform 250ms var(--animation-function);
-  transition: transform 250ms var(--animation-function),
-    -webkit-transform 250ms var(--animation-function);
+  display: none;
+  // transform: translateY(100%);
+  // transition: transform 250ms var(--animation-function);
   padding: 0;
   margin: 0;
 }
-.mobile-menu--is-open {
-  transform: translateX(0);
+.menu-container--open {
+  // transform: translateY(0);
+  display: block;
 }
-.mobile-menu__container {
-  position: relative;
-  height: 100%;
-  max-width: 320px;
-  padding: 0;
-  margin: 0;
+.menu__button.menu__button--open .icon-cross {
+  display: block;
+}
+.menu__button .icon-cross {
+  display: none;
+}
+.menu__button.menu__button--open .icon-menu {
+  display: none;
+}
+.menu__button .icon-menu {
+  display: block;
 }

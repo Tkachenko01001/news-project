@@ -1,27 +1,21 @@
 <header class="header">
     <div class="container header__container">
-        <a href="./index.html" class="header__logo">News</a>
-        <button type="button" class="mobile-menu__button js-open-menu" aria-expanded="false"
-            aria-controls="mobile-menu"><svg width="24" height="16" aria-label="Кнопка меню">
-                <use href="./images/symbol-defs.svg#icon-menu"></use>
-            </svg></button>
-        <div class="mobile-menu js-menu-container" id="mobile-menu__site-nav">
-            <div class="mobile-menu__container">
-                <button class="mobile-menu__button js-close-menu">
-                    <svg width="24" height="24" aria-label="Кнопка закрити меню">
-                        <use href="./images/symbol-defs.svg#icon-close"></use>
-                    </svg>
-                </button>
-                <nav class="header__nav-menu">
-                    <ul class="nav-menu">
-                        <li class="nav-menu__item"><a href="#" class="nav-menu__link nav-menu__link--active">Home</a>
-                        </li>
-                        <li class="nav-menu__item"><a href="#" class="nav-menu__link">Favorite</a></li>
-                        <li class="nav-menu__item"><a href="#" class="nav-menu__link">Read</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
+        <nav class="header__nav">
+            <a href="./index.html" class="header__logo">News</a>
+            <button type="button" class="menu__button" aria-expanded="false" aria-controls="mobile-menu">
+                <svg width="24" height="24" aria-label="Menu switch button">
+                    <use class="icon-menu" href="./images/symbol-defs.svg#icon-menu"></use>
+                    <use class="icon-cross" href="./images/symbol-defs.svg#icon-close"></use>
+                </svg></button>
+            <div class="menu-container" id="mobile-menu__site-nav">
+                <ul class="nav-menu">
+                    <li class="nav-menu__item"><a href="#" class="nav-menu__link nav-menu__link--active">Home</a>
+                    </li>
+                    <li class="nav-menu__item"><a href="#" class="nav-menu__link">Favorite</a></li>
+                    <li class="nav-menu__item"><a href="#" class="nav-menu__link">Read</a></li>
+                </ul>
+        </nav>
+    </div>
     </div>
 </header>
 <script src="./js/mobile-menu.js"></script>

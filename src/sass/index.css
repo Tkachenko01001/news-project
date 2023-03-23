@@ -43,7 +43,7 @@ img {
 }
 
 body {
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: #111321;
@@ -77,6 +77,113 @@ body {
   padding: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
-  clip-path: inset(50%);
+          clip-path: inset(50%);
   margin: -1px;
-} /*# sourceMappingURL=index.css.map */
+}
+
+.header {
+  padding: 24px 0;
+  background-color: #f4f4f4;
+}
+.header__logo {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+  color: #111321;
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    font-size: 32px;
+    line-height: 1.37;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__logo {
+    font-size: 42px;
+    line-height: 1.35;
+  }
+}
+
+.header__nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-menu__link {
+  display: block;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  color: #111321;
+}
+
+.nav-menu__link:hover,
+.nav-menu__link:focus {
+  color: #4440f6;
+}
+
+.nav-menu__link--active {
+  color: #4440f6;
+}
+
+.nav-menu__link--active::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 4px;
+  background-color: #4440f6;
+  border-radius: 2px;
+}
+
+.menu__button {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: transparent;
+}
+
+.menu-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #f4f4f4;
+  z-index: 999;
+  display: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-container--open {
+  display: block;
+}
+
+.menu__button.menu__button--open .icon-cross {
+  display: block;
+}
+
+.menu__button .icon-cross {
+  display: none;
+}
+
+.menu__button.menu__button--open .icon-menu {
+  display: none;
+}
+
+.menu__button .icon-menu {
+  display: block;
+}/*# sourceMappingURL=index.css.map */
