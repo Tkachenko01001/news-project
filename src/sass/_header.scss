@@ -25,15 +25,25 @@
   justify-content: space-between;
 }
 .nav-menu__link {
-  display: block;
+  display: flex;
+  align-items: center;
   font-family: 'Manrope';
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
   color: $dark-color;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+  @media screen and (min-width: $tablet) {
+  }
+  @media screen and (min-width: $desktop) {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.39;
+  }
 }
-
+.nav-menu {
+  padding-left: 16px;
+}
 .nav-menu__link:hover,
 .nav-menu__link:focus {
   color: $accent-color;
@@ -50,6 +60,9 @@
   background-color: $accent-color;
   border-radius: 2px;
 }
+.mobile-menu__icon {
+  margin-right: 13px;
+}
 .menu__button {
   height: 24px;
   width: 24px;
@@ -65,10 +78,11 @@
 .menu-container {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: -16px;
+  width: $mobile;
   height: 100vh;
-  background-color: $light-color;
+  max-height: 568px;
+  background-color: tomato;
   z-index: 999;
   display: none;
   // transform: translateY(100%);

@@ -114,13 +114,25 @@ body {
 }
 
 .nav-menu__link {
-  display: block;
+  display: flex;
+  align-items: center;
   font-family: "Manrope";
   font-style: normal;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 25px;
   color: #111321;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+}
+@media screen and (min-width: 1280px) {
+  .nav-menu__link {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.39;
+  }
+}
+
+.nav-menu {
+  padding-left: 16px;
 }
 
 .nav-menu__link:hover,
@@ -142,6 +154,10 @@ body {
   border-radius: 2px;
 }
 
+.mobile-menu__icon {
+  margin-right: 13px;
+}
+
 .menu__button {
   height: 24px;
   width: 24px;
@@ -158,10 +174,11 @@ body {
 .menu-container {
   position: absolute;
   top: 100%;
-  left: 0;
-  width: 100%;
+  left: -16px;
+  width: 320px;
   height: 100vh;
-  background-color: #f4f4f4;
+  max-height: 568px;
+  background-color: tomato;
   z-index: 999;
   display: none;
   padding: 0;
