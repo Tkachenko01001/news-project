@@ -1,14 +1,5 @@
 body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  flex-direction: column;
-  background-color: rgb(233, 228, 253);
-  font-family: sans-serif;
+  margin-top: 50px;
 }
 
 .date-picked {
@@ -60,43 +51,4 @@ body {
 
 #picked:hover {
   color: #ffffff;
-}
-
-td {
-  cursor: pointer;
-  text-align: center;
-}
-td:hover {
-  background-color: rgb(237, 237, 237);
-}
-
-main {
-  background-color: #fff;
-  width: 250px;
-  height: 200px;
-  border: 2px solid #1a3c5c;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-#calender-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: #1a3c5c;
-  width: 250px;
-  color: #fff;
-}
-
-button {
-  border: none;
-  background-color: transparent;
-  color: rgb(8, 6, 6);
-  margin: 0 20px;
-}
-
-.today {
-  background-color: #1a3c5c;
-  color: #fff;
 }
