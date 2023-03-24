@@ -1,4 +1,5 @@
 const galleryNews = document.querySelector('.galleryNews');
+
 const cardFavText = "Add to favorite";
 function renderCard(result) {
   const mediaUrl = result.media[0]['media-metadata'][2].url;
