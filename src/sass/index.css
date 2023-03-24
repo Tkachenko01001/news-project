@@ -83,7 +83,6 @@ body {
 }
 
 .header {
-  background-color: #f4f4f4;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 .header__logo {
@@ -92,7 +91,7 @@ body {
   font-weight: 700;
   font-size: 24px;
   line-height: 1.37;
-  color: #111321;
+  color: inherit;
   padding: 24px 0;
 }
 @media screen and (min-width: 768px) {
@@ -112,6 +111,10 @@ body {
   }
 }
 
+.header--night {
+  border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+}
+
 .header__nav {
   position: relative;
   width: 100%;
@@ -128,7 +131,6 @@ body {
     height: 100vh;
     z-index: 999;
     display: none;
-    background-color: #f4f4f4;
     overflow: hidden;
   }
 }
@@ -175,7 +177,7 @@ body {
   gap: 14px;
   font-family: "Manrope";
   font-style: normal;
-  color: #111321;
+  color: inherit;
   font-weight: 500;
   font-size: 16px;
   line-height: 1.37;
@@ -350,7 +352,6 @@ body {
   font-size: 24px;
   line-height: 1.37;
   letter-spacing: -0.01em;
-  color: #111321;
   margin: 0 0 20px 0;
 }
 @media (min-width: 768px) {
@@ -358,10 +359,6 @@ body {
     height: 132px;
     font-size: 32px;
   }
-}
-
-.card__title--dark {
-  color: #ffffff;
 }
 
 .card__subscribe {
@@ -372,7 +369,6 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.37;
-  color: #111321;
   margin: 0 0 20px 0;
 }
 @media (min-width: 768px) {
@@ -492,6 +488,7 @@ body {
 
 .night--theme {
   background-color: #2e2e2e;
+  color: #f4f4f4;
   transition: 0.2s;
 }
 
