@@ -82,6 +82,7 @@ body {
 }
 
 .card {
+  position: relative;
   width: 288px;
   height: 630px;
 }
@@ -203,17 +204,16 @@ body {
 @media (min-width: 768px) {
   .card__date {
     font-size: 16px;
-    width: 85px;
+    width: 90px;
     height: 22px;
     left: 0px;
     top: 653px;
   }
 }
 
-.card__fawBtn {
+.card__favorite {
   position: absolute;
   display: flex;
-  cursor: pointer;
   justify-content: center;
   gap: 15px;
   align-items: center;
@@ -223,21 +223,20 @@ body {
   top: 355px;
   background: #ffffff;
   border-radius: 20px;
-  border-style: none;
 }
 @media (min-width: 768px) {
-  .card__fawBtn {
+  .card__favorite {
     left: 173px;
     top: 355px;
   }
 }
 @media (min-width: 1280px) {
-  .card__fawBtn {
+  .card__favorite {
     left: 216px;
   }
 }
 
-.card__fawText {
+.card__favText {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -262,4 +261,12 @@ body {
   justify-content: center;
   align-items: center;
   color: #ffffff;
+}
+
+.card__favBtn {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border-style: none;
+  background: #ffffff;
 }/*# sourceMappingURL=index.css.map */
