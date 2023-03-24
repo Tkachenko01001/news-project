@@ -34,7 +34,10 @@
 
 .favorite__item {
   margin: 0 auto;
+  width: 288px;
+  height: 630px;
  
+
   @media screen and (min-width: $tablet) {
     width: 353px;
     height: 675px;
