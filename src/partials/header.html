@@ -27,7 +27,25 @@
                             </svg> Read</a></li>
                 </ul>
                 <div class="search">s</div>
-                <div class="theme">theme</div>
+                <div class="theme">
+                    <span class="switcher-pointer" id="light">Light</span>
+                    <svg width="18" height="18" class="theme__icon-sun">
+                        <use href="./images/symbol-defs.svg#icon-sun">
+                        </use>
+                    </svg>
+                    <label class="theme__checkbox">
+                        <svg width="16" height="16" class="theme__light">
+                            <use href="./images/symbol-defs.svg#icon-toggle">
+                            </use>
+                        </svg>
+                        <input type="checkbox">
+                    </label>
+                    <span class="switcher-pointer switcher-pointer--dark" id="dark">Dark</span>
+                    <svg width="16" height="16" class="theme__icon-moon">
+                        <use href="./images/symbol-defs.svg#icon-moon">
+                        </use>
+                    </svg>
+                </div>
             </div>
         </nav>
     </div>
