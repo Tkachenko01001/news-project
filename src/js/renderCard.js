@@ -19,7 +19,7 @@ function renderCard(result) {
 <span class="card__favText">${cardFavText}</span>
 <button class="card__favBtn" type="button" >
 <svg class="card__favicon "width="16px" height="16px">
-<use href='../images/symbol-defs.svg#icon-favorite'></use>
+<use href='./images/symbol-defs.svg#icon-favorite'></use>
 </svg>
 </button>
 </div>
