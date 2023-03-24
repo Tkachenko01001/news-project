@@ -1,11 +1,11 @@
-export const divEl = document.querySelector('.theme');
-export const themeSwitch = document.querySelector('.theme__light');
-export const iconSun = document.querySelector('.theme__icon-sun');
-export const iconMoon = document.querySelector('.theme__icon-moon');
-export const labelEl = document.querySelector('.theme__checkbox');
-export const bodyEl = document.querySelector('body');
-export const pointerLight = document.querySelector('#light');
-export const pointerDark = document.querySelector('#dark');
+const themeSwitch = document.querySelector('.theme__light');
+const iconSun = document.querySelector('.theme__icon-sun');
+const iconMoon = document.querySelector('.theme__icon-moon');
+const labelEl = document.querySelector('.theme__checkbox');
+const bodyEl = document.querySelector('body');
+const pointerLight = document.querySelector('#light');
+const pointerDark = document.querySelector('#dark');
+const borderEl = document.querySelector('.header');
 
 const THEME_KEY = 'selected_theme';
 
@@ -21,6 +21,7 @@ const applyTheme = (isNightTheme) => {
     bodyEl.classList.add('night--theme');
     pointerLight.classList.add('switcher-pointer--light');
     pointerDark.classList.add('pointer--night');
+    borderEl.classList.add('header--night');
   }
   
   else {
@@ -31,6 +32,7 @@ const applyTheme = (isNightTheme) => {
     bodyEl.classList.remove('night--theme');
     pointerLight.classList.remove('switcher-pointer--light');
     pointerDark.classList.remove('pointer--night');
+    borderEl.classList.remove('header--night');
   }
 }
 
@@ -47,3 +49,5 @@ const onClickSwitch = (e) => {
 applyTheme(isNightTheme);
 
 labelEl.addEventListener('click', onClickSwitch);
+
+export {themeSwitch, iconSun, iconMoon, labelEl, bodyEl, pointerLight, pointerDark, borderEl};

@@ -45,16 +45,11 @@
     font-size: 24px;
     line-height: 1.37;
     letter-spacing: -0.01em;
-    color: $dark-color;
     margin: 0 0 20px 0;
     @media (min-width: $tablet) {
         height: 132px;
         font-size: 32px;
         }
-}
-
-.card__title--dark {
-    color: $white-color;
 }
 
 .card__subscribe {
@@ -65,7 +60,6 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.37;
-    color: $dark-color;
     margin: 0 0 20px 0;
     @media (min-width: $tablet) {
         font-size: 16px;
