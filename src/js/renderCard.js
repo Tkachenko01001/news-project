@@ -1,6 +1,6 @@
 const galleryNews = document.querySelector('.galleryNews');
 
-const cardFavText = "Add to favorite";
+const cardFavText = 'Add to favorite';
 function renderCard(result) {
   const mediaUrl = result.media[0]['media-metadata'][2].url;
   const mediaAlt = result.media[0]['media-metadata'].caption;
@@ -33,6 +33,6 @@ function renderCard(result) {
 </a>
 </div>
 `;
-    galleryNews.insertAdjacentHTML('beforeend', markup);
-  }
+  galleryNews.insertAdjacentHTML('beforeend', markup);
+}
 export default { renderCard };

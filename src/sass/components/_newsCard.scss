@@ -1,79 +1,70 @@
-.card {
-    position: relative;
-    width: 288px;
-    height: 630px;
-    @media (min-width: $tablet) {  
-    width: 353px;
-    height: 675px;
-        }
-    
-    @media (min-width: $desktop) { 
-    width: 395px;
-    height: 675px;
-        }
+.galleryNews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  line-height: 1.37;
 }
 
-.card__img {
+.card {
+  position: relative;
+  width: 288px;
+  height: 630px;
+
+  @media (min-width: $tablet) {
+    width: 353px;
+    height: 675px;
+  }
+
+  @media (min-width: $desktop) {
+    width: 395px;
+    height: 675px;
+  }
+
+  &__img {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
     border-radius: 4px;
-}
+  }
 
-.card__img-wrapper {
+  &__title {
+    margin-bottom: 20px;
+    font-size: 2em;
+    letter-spacing: -0.01em;
+  }
+
+  &__img-wrapper {
     display: flex;
     height: 395px;
     width: 288px;
     margin-bottom: 20px;
     @media (min-width: $tablet) {
-        width: 353px;
-        height: 395px;
-        }
-    
+      width: 353px;
+      height: 395px;
+    }
+
     @media (min-width: $desktop) {
-        width: 395px;
-        height: 395px;
-        }
-}
+      width: 395px;
+      height: 395px;
+    }
+  }
 
-.card__title {
-    width: 100%;
-    height: 99px;
-    overflow: hidden;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.37;
-    letter-spacing: -0.01em;
-    color: $dark-color;
-    margin: 0 0 20px 0;
-    @media (min-width: $tablet) {
-        height: 132px;
-        font-size: 32px;
-        }
-}
-
-.card__title--dark {
-    color: $white-color;
-}
-
-.card__subscribe {
+  &__subscribe {
     width: 100%;
     overflow: hidden;
     font-style: normal;
     height: 57px;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.37;
     color: $dark-color;
     margin: 0 0 20px 0;
     @media (min-width: $tablet) {
-        font-size: 16px;
-        height: 66px;
-        }
-}
+      font-size: 16px;
+      height: 66px;
+    }
+  }
 
-.card__read-more {
+  &__read-more {
     position: absolute;
     left: 218px;
     width: 69px;
@@ -81,21 +72,20 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.37;
     color: $accent-color;
     @media (min-width: $tablet) {
-        font-size: 16px;
-        width: 79px;
-        height: 22px;
-        left: 273px;
-        top: 653px;
-            }    
-    @media (min-width: $desktop) {
-        left: 290px;
+      font-size: 16px;
+      width: 79px;
+      height: 22px;
+      left: 273px;
+      top: 653px;
     }
-}
+    @media (min-width: $desktop) {
+      left: 290px;
+    }
+  }
 
-.card__date {
+  &__date {
     position: absolute;
     left: 1px;
     width: 74px;
@@ -103,19 +93,18 @@
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
-    line-height: 1.37;
     text-align: right;
     color: $gray-color;
     @media (min-width: $tablet) {
-        font-size: 16px;
-        width: 90px;
-        height: 22px;
-        left: 0px;
-        top: 653px;
-            }
-}
+      font-size: 16px;
+      width: 90px;
+      height: 22px;
+      left: 0px;
+      top: 653px;
+    }
+  }
 
-.card__favorite {
+  &__favorite {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -129,24 +118,24 @@
     border-radius: 20px;
 
     @media (min-width: $tablet) {
-    left: 173px;
-    top: 355px;
-        }
-    @media (min-width: $desktop) {
-        left: 216px;
+      left: 173px;
+      top: 355px;
     }
+    @media (min-width: $desktop) {
+      left: 216px;
+    }
+  }
 
-}
-.card__favText {
+  &__favText {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     text-align: center;
     color: $dark-color;
-}
+  }
 
-.card__category {
+  &__category {
     position: absolute;
     display: flex;
     width: 112px;
@@ -157,17 +146,18 @@
     border-radius: 0px 4px 4px 0px;
 
     font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1;
-        justify-content: center;
-        align-items: center;
-        color: $white-color;
-}
-.card__favBtn {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
+  }
+  &__favBtn {
     width: 16px;
     height: 16px;
     cursor: pointer;
     border-style: none;
     background: $white-color;
+  }
 }
