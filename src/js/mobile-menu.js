@@ -14,11 +14,11 @@
     bodyScrollLock[scrollLockMethod](document.body);
 
     // Close the mobile menu on wider screens if the device orientation changes
-    // window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-    //   if (!e.matches) return;
-    //   mobileMenuRef.classList.remove('menu-container--open');
-    //   menuBtnRef.setAttribute('aria-expanded', false);
-    //   bodyScrollLock.enableBodyScroll(document.body);
-    // });
+    window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
+      if (!e.matches) return;
+      mobileMenuRef.classList.remove('menu-container--open');
+      menuBtnRef.setAttribute('aria-expanded', false);
+      bodyScrollLock.enableBodyScroll(document.body);
+    });
   });
 })();

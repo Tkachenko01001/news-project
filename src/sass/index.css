@@ -84,7 +84,7 @@ body {
 
 .header {
   background-color: #f4f4f4;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 .header__logo {
   font-family: "Manrope";
@@ -169,6 +169,7 @@ body {
 }
 
 .nav-menu__link {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -199,18 +200,16 @@ body {
   color: #4440f6;
 }
 
-.nav-menu__link--active {
-  color: #4440f6;
-}
-
 .nav-menu__link--active::after {
   content: "";
   position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
   display: block;
-  width: 50px;
-  height: 4px;
-  background-color: #4440f6;
-  border-radius: 2px;
+  width: 100%;
+  height: 0px;
+  border: 1px solid #4440f6;
 }
 
 .mobile-menu__icon {
@@ -268,10 +267,17 @@ body {
 }
 
 .search {
-  width: 20px;
-  height: 20px;
   border: 1px solid black;
   border-radius: 35%;
+}
+@media screen and (max-width: 768px) {
+  .search {
+    position: absolute;
+    top: 30px;
+    right: 54px;
+    width: 20px;
+    height: 20px;
+  }
 }
 @media screen and (min-width: 768px) {
   .search {
