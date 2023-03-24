@@ -31,10 +31,28 @@ export async function weatherCardMarkup({ lat = "40.7780171", lon = "74.2300493"
             <div class="weather__button">
                 <a class="weather__btn" href="">weather for week</a>
             </div>
-        </div>
+        </div>weatherInfo.insertAdjacentHTML('beforeend', weatherCardMarkup(
     `;
-    
-    return weatherCard;
-
     weatherInfo.insertAdjacentHTML('beforeend', weatherCard);
+    /* return weatherCard; */
+}
+
+/* weatherInfo.insertAdjacentHTML('beforeend', weatherCard); */
+
+function geoWeather() {
+    navigator.geolocation.getCurrentPosition(
+        getGeolocation => {
+            const geolocationNew = {
+                lat: getGeolocation.coords.latitude,
+                lon: getGeolocation.coords.longitude,
+            };
+
+            weatherCardMarkup(geolocationNew).then(dataNew => {
+                weatherInfo.innerHTML = `${dataNew}`;
+            });
+        },
+        error => {
+            error
+        }
+    );
 }
