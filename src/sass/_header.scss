@@ -1,6 +1,7 @@
 .header {
   padding: 24px 0;
   background-color: $light-color;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   &__logo {
     font-family: 'Manrope';
     font-style: normal;
@@ -8,13 +9,18 @@
     font-size: 24px;
     line-height: 1.37;
     color: $dark-color;
+    padding: 24px 0;
     @media screen and (min-width: $tablet) {
       font-size: 32px;
       line-height: 1.37;
+      margin-right: 48px;
+      padding: 32px 0 32px 0;
     }
     @media screen and (min-width: $desktop) {
       font-size: 42px;
       line-height: 1.35;
+      margin-right: 102px;
+      padding: 28px 0;
     }
   }
 }
@@ -23,10 +29,63 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  @media screen and (min-width: $tablet) {
+    // padding: 32px 0 28px 0;
+    // height: 106px;
+  }
+  @media screen and (min-width: $desktop) {
+  }
+}
+.menu-container {
+  @media screen and (max-width: $tablet) {
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    width: $mobile;
+    height: 100vh;
+    max-height: 568px;
+    z-index: 999;
+    display: none;
+    // transform: translateY(100%);
+    // transition: transform 250ms var(--animation-function);
+  }
+  @media screen and (min-width: $tablet) {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  @media screen and (min-width: $desktop) {
+  }
+}
+.menu-container--open {
+  // transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.nav-menu {
+  padding-left: 16px;
+  padding-top: 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 32px;
+    gap: 44px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 147px;
+    gap: 69px;
+  }
 }
 .nav-menu__link {
   display: flex;
   align-items: center;
+  gap: 14px;
   font-family: 'Manrope';
   font-style: normal;
   color: $dark-color;
@@ -34,15 +93,15 @@
   font-size: 16px;
   line-height: 1.37;
   @media screen and (min-width: $tablet) {
+    font-weight: 700;
+    font-size: 16px;
+    gap: 0;
   }
   @media screen and (min-width: $desktop) {
     font-weight: 700;
     font-size: 18px;
     line-height: 1.39;
   }
-}
-.nav-menu {
-  padding-left: 16px;
 }
 .nav-menu__link:hover,
 .nav-menu__link:focus {
@@ -61,7 +120,13 @@
   border-radius: 2px;
 }
 .mobile-menu__icon {
-  margin-right: 13px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+.icon-arrow-right {
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
 }
 .menu__button {
   height: 24px;
@@ -74,25 +139,9 @@
   margin: 0;
   cursor: pointer;
   background: transparent;
-}
-.menu-container {
-  position: absolute;
-  top: 100%;
-  left: -16px;
-  width: $mobile;
-  height: 100vh;
-  max-height: 568px;
-  background-color: tomato;
-  z-index: 999;
-  display: none;
-  // transform: translateY(100%);
-  // transition: transform 250ms var(--animation-function);
-  padding: 0;
-  margin: 0;
-}
-.menu-container--open {
-  // transform: translateY(0);
-  display: block;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
 }
 .menu__button.menu__button--open .icon-cross {
   display: block;
@@ -105,4 +154,40 @@
 }
 .menu__button .icon-menu {
   display: block;
+}
+.mobile-menu__icon {
+  margin-right: 13px;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+// зашлушка поиска на время
+.search {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 35%;
+  @media screen and (min-width: $tablet) {
+    width: 213px;
+    height: 31px;
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 24px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 147px;
+    width: 288px;
+  }
+}
+.theme {
+  width: 98px;
+  height: 21px;
+  border: 1px solid $switcher-accent-color;
+  @media screen and (min-width: $tablet) {
+  }
+  @media screen and (min-width: $desktop) {
+    width: 148px;
+    height: 24px;
+  }
 }

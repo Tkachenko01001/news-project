@@ -84,6 +84,7 @@ body {
 .header {
   padding: 24px 0;
   background-color: #f4f4f4;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 .header__logo {
   font-family: "Manrope";
@@ -92,17 +93,22 @@ body {
   font-size: 24px;
   line-height: 1.37;
   color: #111321;
+  padding: 24px 0;
 }
 @media screen and (min-width: 768px) {
   .header__logo {
     font-size: 32px;
     line-height: 1.37;
+    margin-right: 48px;
+    padding: 32px 0 32px 0;
   }
 }
 @media screen and (min-width: 1280px) {
   .header__logo {
     font-size: 42px;
     line-height: 1.35;
+    margin-right: 102px;
+    padding: 28px 0;
   }
 }
 
@@ -111,11 +117,60 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .menu-container {
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    width: 320px;
+    height: 100vh;
+    max-height: 568px;
+    z-index: 999;
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
+.menu-container--open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  padding-left: 16px;
+  padding-top: 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media screen and (min-width: 768px) {
+  .nav-menu {
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 32px;
+    gap: 44px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav-menu {
+    margin-right: 147px;
+    gap: 69px;
+  }
 }
 
 .nav-menu__link {
   display: flex;
   align-items: center;
+  gap: 14px;
   font-family: "Manrope";
   font-style: normal;
   color: #111321;
@@ -123,16 +178,19 @@ body {
   font-size: 16px;
   line-height: 1.37;
 }
+@media screen and (min-width: 768px) {
+  .nav-menu__link {
+    font-weight: 700;
+    font-size: 16px;
+    gap: 0;
+  }
+}
 @media screen and (min-width: 1280px) {
   .nav-menu__link {
     font-weight: 700;
     font-size: 18px;
     line-height: 1.39;
   }
-}
-
-.nav-menu {
-  padding-left: 16px;
 }
 
 .nav-menu__link:hover,
@@ -155,7 +213,14 @@ body {
 }
 
 .mobile-menu__icon {
-  margin-right: 13px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .icon-arrow-right {
+    display: none;
+  }
 }
 
 .menu__button {
@@ -170,23 +235,10 @@ body {
   cursor: pointer;
   background: transparent;
 }
-
-.menu-container {
-  position: absolute;
-  top: 100%;
-  left: -16px;
-  width: 320px;
-  height: 100vh;
-  max-height: 568px;
-  background-color: tomato;
-  z-index: 999;
-  display: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu-container--open {
-  display: block;
+@media screen and (min-width: 768px) {
+  .menu__button {
+    display: none;
+  }
 }
 
 .menu__button.menu__button--open .icon-cross {
@@ -203,4 +255,48 @@ body {
 
 .menu__button .icon-menu {
   display: block;
+}
+
+.mobile-menu__icon {
+  margin-right: 13px;
+}
+@media screen and (min-width: 768px) {
+  .mobile-menu__icon {
+    display: none;
+  }
+}
+
+.search {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 35%;
+}
+@media screen and (min-width: 768px) {
+  .search {
+    width: 213px;
+    height: 31px;
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .search {
+    margin-right: 147px;
+    width: 288px;
+  }
+}
+
+.theme {
+  width: 98px;
+  height: 21px;
+  border: 1px solid #4b48db;
+}
+@media screen and (min-width: 1280px) {
+  .theme {
+    width: 148px;
+    height: 24px;
+  }
 }/*# sourceMappingURL=index.css.map */
