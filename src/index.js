@@ -1,1 +1,1 @@
-import * as NewList from './js/news-list'; //cards
+import * as NewsList from './js/news-list'; //cards
