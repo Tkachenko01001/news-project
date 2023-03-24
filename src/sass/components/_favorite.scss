@@ -13,7 +13,7 @@
   }
 }
 
-.favorite__list {
+.favorite__container {
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -34,10 +34,7 @@
 
 .favorite__item {
   margin: 0 auto;
-  width: 288px;
-  height: 630px;
-  background-color: aqua;
-
+ 
   @media screen and (min-width: $tablet) {
     width: 353px;
     height: 675px;
