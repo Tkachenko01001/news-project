@@ -2,25 +2,20 @@
     max-width: 15px;
     //width: 173px;
     position: relative;
-    margin-top: 28px;
-    margin-bottom: 22px;
 
     @media screen and (min-width: $tablet) {
         max-width: 213px;
-        margin-top: 44px;
-        margin-bottom: 31px;
     }
 
     @media screen and (min-width: $desktop) {
+        margin-right: 147px;
         max-width: 288px;
-        margin-top: 51px;
-        margin-bottom: 31px;
     }
 }
 
 
 .search-input {
-    transition: all 0.5s ease-in-out;
+    
     width: 100%;
     height: 31px;
     padding-left: 48px;
@@ -40,6 +35,7 @@
     outline: none;
 
     @media screen and (min-width: $tablet) {
+        
         display: block;
         width: 100%;
         height: 31px;
@@ -52,19 +48,26 @@
     @media screen and (min-width: $desktop) {}
 }
 
+.search-input--dark {
+    
+    border: 1px solid $light-color;
+} 
+
 .open {
+    
     display: block;
     max-width: 173px;
     border: 1px solid;
     border-radius: 20px;
-    transition: all 0.5s ease-in-out;
 
     @media screen and (min-width: $tablet) {
+        
         max-width: 213px;
         border: none;
     }
 
     @media screen and (min-width: $desktop) {
+        
         max-width: 288px;
         border: none;
     }
@@ -72,6 +75,7 @@
 }
 
 .search-icon {
+    
     position: absolute;
     left: 12px;
     top: 6px;

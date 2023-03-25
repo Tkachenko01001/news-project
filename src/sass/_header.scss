@@ -27,7 +27,6 @@
   border-bottom: 1px solid rgba(244, 244, 244, 0.2);
 }
 .header--menu-open {
-  transition: 0.2s;
   border: none;
 }
 
@@ -39,9 +38,9 @@
   align-items: center;
 }
 .menu-container {
-    transition: 0.2s;
+
   @media screen and (max-width: $tablet) {
-    transition: 0.2s;
+
     position: absolute;
     top: calc(100%);
     left: -16px;
@@ -69,7 +68,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: 0.2s;
 }
 .nav-menu {
   padding-top: 68px;
