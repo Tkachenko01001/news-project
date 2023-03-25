@@ -7,7 +7,7 @@ import * as bodyScrollLock from 'body-scroll-lock';
 
   menuBtnRef.addEventListener('click', () => {
     const expanded =
-    menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+      menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
     mobileMenuRef.classList.toggle('menu-container--open');
     menuBtnRef.classList.toggle('menu__button--open');
     headerRef.classList.toggle('header--menu-open');
@@ -15,7 +15,7 @@ import * as bodyScrollLock from 'body-scroll-lock';
     const scrollLockMethod = !expanded
       ? 'disableBodyScroll'
       : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+    // bodyScrollLock[scrollLockMethod](document.body);
 
     // Close the mobile menu on wider screens if the device orientation changes
     window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
