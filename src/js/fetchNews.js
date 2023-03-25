@@ -14,7 +14,7 @@ async function fetchNews(categ) {
         
     }
     catch (error) { 
-        alert(error)
+        console.log(error)
     }
 }
 export default { fetchNews };
