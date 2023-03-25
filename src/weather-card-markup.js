@@ -1,6 +1,7 @@
 import { getWeather } from './weather-api';
 
 const weatherInfo = document.querySelector('.weather-info');
+console.log(weatherInfo);
 
 export async function weatherCardMarkup(lat, lon) {
     try {
