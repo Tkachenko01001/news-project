@@ -20,6 +20,7 @@
 
   @media screen and (min-width: $tablet) {
     display: grid;
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(353px, auto));
     grid-auto-rows: 675px;
     grid-gap: 30px;
@@ -36,7 +37,6 @@
   margin: 0 auto;
   width: 288px;
   height: 630px;
- background-color: aqua;
 
   @media screen and (min-width: $tablet) {
     width: 353px;
@@ -47,4 +47,3 @@
     width: 395px;
   }
 }
-

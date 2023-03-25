@@ -10,14 +10,17 @@ export default function addToFavorite(e) {
     localStorage.setItem(LOCALSTORAGE_KEY, '[]');
   }
   let favoriteNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  
   const favoriteCard = {
     id: e.target.parentNode.parentNode.parentNode.id,
     card: e.target.parentNode.parentNode.parentNode.innerHTML,
   };
-  console.log(favoriteCard);
-  favoriteNews.push(favoriteCard);
-  console.log(favoriteNews);
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(favoriteNews));
+
+  if (!favoriteNews.find(card => card.id === favoriteCard.id)) {
+    favoriteNews.push(favoriteCard);
+    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(favoriteNews));
+  }
+
   return favoriteNews;
 }
 
