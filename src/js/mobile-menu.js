@@ -1,12 +1,13 @@
+import * as bodyScrollLock from 'body-scroll-lock';
+
 (() => {
-  const bodyScrollLock = require('body-scroll-lock');
   const mobileMenuRef = document.querySelector('.menu-container');
   const menuBtnRef = document.querySelector('.menu__button');
   const headerRef = document.querySelector('.header');
 
   menuBtnRef.addEventListener('click', () => {
     const expanded =
-      menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
+    menuBtnRef.getAttribute('aria-expanded') === 'true' || false;
     mobileMenuRef.classList.toggle('menu-container--open');
     menuBtnRef.classList.toggle('menu__button--open');
     headerRef.classList.toggle('header--menu-open');
