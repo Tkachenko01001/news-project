@@ -19,7 +19,6 @@
     overflow: hidden;
     border-radius: 4px;
 }
-
 .card__img-wrapper {
     display: flex;
     height: 395px;
@@ -170,4 +169,10 @@
     cursor: pointer;
     border-style: none;
     background: $white-color;
+    background: url("../images/symbol-defs.svg#icon-heart-white");
+    fill: none;
+}
+.card__favBtn--fill {
+    fill: $switcher-accent-color;
+    stroke: $switcher-dark-color;
 }

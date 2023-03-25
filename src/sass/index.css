@@ -274,6 +274,13 @@ body {
   cursor: pointer;
   border-style: none;
   background: #ffffff;
+  background: url("../images/symbol-defs.svg#icon-heart-white");
+  fill: none;
+}
+
+.card__favBtn--fill {
+  fill: #4b48db;
+  stroke: #5f6775;
 }
 
 .night--theme {

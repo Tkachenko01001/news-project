@@ -1,5 +1,6 @@
 import RENDERCARD from './renderCard';
 import axios from 'axios';
+
 const appID = 'IIf4vmmTbfNyDLUoXuoPyrjTHkEJuSUj';
 
 async function fetchNews(categ) {
