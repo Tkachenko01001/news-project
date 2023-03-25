@@ -38,9 +38,7 @@
   align-items: center;
 }
 .menu-container {
-
   @media screen and (max-width: $tablet) {
-
     position: absolute;
     top: calc(100%);
     left: -16px;
@@ -49,7 +47,7 @@
     z-index: 999;
     display: none;
     background-color: $light-color;
-    overflow: hidden;
+    // overflow: hidden;
     padding-bottom: 18px;
   }
   @media screen and (min-width: $tablet) {
@@ -64,7 +62,6 @@
   background-color: $bg-dark-color;
 }
 .menu-container--open {
-  
   display: flex;
   flex-direction: column;
   justify-content: space-between;

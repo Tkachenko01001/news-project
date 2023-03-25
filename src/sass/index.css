@@ -137,7 +137,6 @@ body {
     z-index: 999;
     display: none;
     background-color: #f4f4f4;
-    overflow: hidden;
     padding-bottom: 18px;
   }
 }
@@ -325,12 +324,18 @@ body {
   }
 }
 
-.input-box {
-  max-width: 15px;
-  position: relative;
+@media screen and (max-width: 768px) {
+  .input-box {
+    position: absolute;
+    top: -55px;
+    right: 69px;
+    max-width: 15px;
+  }
 }
 @media screen and (min-width: 768px) {
   .input-box {
+    position: relative;
+    margin-right: 24px;
     max-width: 213px;
   }
 }
@@ -379,6 +384,7 @@ body {
   max-width: 173px;
   border: 1px solid;
   border-radius: 20px;
+  right: 54px;
 }
 @media screen and (min-width: 768px) {
   .open {
