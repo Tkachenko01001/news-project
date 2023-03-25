@@ -81,22 +81,254 @@ body {
   margin: -1px;
 }
 
-.galleryNews {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
+.header {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+.header__logo {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
   line-height: 1.37;
+  color: inherit;
+  padding: 24px 0;
+}
+@media screen and (min-width: 768px) {
+  .header__logo {
+    font-size: 32px;
+    line-height: 1.37;
+    margin-right: 48px;
+    padding: 32px 0 30px 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header__logo {
+    font-size: 42px;
+    line-height: 1.35;
+    margin-right: 102px;
+    padding: 28px 0;
+  }
+}
+
+.header--night {
+  border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+}
+
+.header__nav {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .menu-container {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: -16px;
+    width: 320px;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 768px) {
+  .menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+}
+.menu-container--open {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  padding-left: 16px;
+  padding-top: 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+@media screen and (min-width: 768px) {
+  .nav-menu {
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 32px;
+    gap: 44px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav-menu {
+    margin-right: 147px;
+    gap: 69px;
+  }
+}
+
+.nav-menu__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Manrope";
+  font-style: normal;
+  color: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.37;
+}
+@media screen and (min-width: 768px) {
+  .nav-menu__link {
+    font-weight: 700;
+    font-size: 16px;
+    gap: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav-menu__link {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.39;
+  }
+}
+
+.nav-menu__link:hover,
+.nav-menu__link:focus {
+  color: #4440f6;
+}
+
+.nav-menu__link--active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+  width: 100%;
+  height: 0px;
+  border: 1px solid #4440f6;
+}
+
+.mobile-menu__icon {
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .icon-arrow-right {
+    display: none;
+  }
+}
+
+.menu__button {
+  height: 24px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  background: transparent;
+}
+@media screen and (min-width: 768px) {
+  .menu__button {
+    display: none;
+  }
+}
+
+.menu__button.menu__button--open .icon-cross {
+  display: block;
+}
+
+.menu__button .icon-cross {
+  display: none;
+}
+
+.menu__button.menu__button--open .icon-menu {
+  display: none;
+}
+
+.menu__button .icon-menu {
+  display: block;
+}
+
+.mobile-menu__icon {
+  margin-right: 13px;
+}
+@media screen and (min-width: 768px) {
+  .mobile-menu__icon {
+    display: none;
+  }
+}
+
+.search {
+  border: 1px solid black;
+  border-radius: 35%;
+}
+@media screen and (max-width: 768px) {
+  .search {
+    position: absolute;
+    top: 30px;
+    right: 54px;
+    width: 20px;
+    height: 20px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .search {
+    width: 213px;
+    height: 31px;
+    flex-direction: row;
+    padding: 0;
+    align-items: center;
+    margin-right: 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .search {
+    margin-right: 147px;
+    width: 288px;
+  }
+}
+
+.galleryNews {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  line-height: 1.37;
+}
+@media screen and (min-width: 768px) {
+  .galleryNews {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5em 1.97em;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .galleryNews {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px 50px;
+  }
 }
 
 .card {
   position: relative;
   width: 288px;
   height: 630px;
+  margin-bottom: 28px;
 }
 @media (min-width: 768px) {
   .card {
     width: 353px;
     height: 675px;
+    margin-bottom: 0;
   }
 }
 @media (min-width: 1280px) {
@@ -112,9 +344,22 @@ body {
   border-radius: 4px;
 }
 .card__title {
-  margin-bottom: 20px;
-  font-size: 2em;
+  width: 100%;
+  height: 99px;
+  overflow: hidden;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
   letter-spacing: -0.01em;
+  color: #111321;
+  margin: 0 0 20px 0;
+}
+@media (min-width: 768px) {
+  .card__title {
+    height: 132px;
+    font-size: 32px;
+  }
 }
 .card__img-wrapper {
   display: flex;
@@ -134,15 +379,23 @@ body {
     height: 395px;
   }
 }
+.card__title--dark {
+  color: #ffffff;
+}
 .card__subscribe {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
   width: 100%;
-  overflow: hidden;
-  font-style: normal;
+  margin: 0 0 20px 0;
   height: 57px;
+  font-style: normal;
   font-weight: 400;
   font-size: 14px;
+  line-height: 1.37;
   color: #111321;
-  margin: 0 0 20px 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @media (min-width: 768px) {
   .card__subscribe {
@@ -177,7 +430,6 @@ body {
 .card__date {
   position: absolute;
   left: 1px;
-  width: 74px;
   height: 19px;
   font-style: normal;
   font-weight: 400;
@@ -253,6 +505,7 @@ body {
 
 .night--theme {
   background-color: #2e2e2e;
+  color: #f4f4f4;
   transition: 0.2s;
 }
 
@@ -260,7 +513,6 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 49px;
 }
 
 .theme__checkbox {
@@ -272,7 +524,7 @@ body {
   display: inline-block;
   box-sizing: border-box;
   transition: 0.2s;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .theme__checkbox:hover {
   cursor: pointer;
