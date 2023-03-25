@@ -1,36 +1,35 @@
-.calendar {
+/* .calendar {
   margin-top: 50px;
-}
-
+} */
 
 .date-picked {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
 
-  position: absolute;
+  position: absolute; */
   width: 168px;
   height: 31px;
-  left: 0px;
-  top: 0px;
+  /* left: 0px;
+  top: 0px; */
   cursor: pointer;
   border: 1px solid #111321;
   border-radius: 20px;
 }
 
 .date-picked:hover {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
 
-  position: absolute;
+  position: absolute; */
   width: 168px;
   height: 31px;
-  left: 0px;
-  top: 0px;
+  /* left: 0px;
+  top: 0px; */
   cursor: pointer;
   background: #4440f6;
   border-radius: 20px;
 }
 
 #picked {
-  position: absolute;
+  /* position: absolute; */
   width: 77px;
   height: 21px;
   left: 46px;

@@ -1,2 +1,9 @@
-@import './common';
+@import './utils/common';
+@import './utils/reset';
+@import './utils/variables';
+@import './utils/utilities';
+@import './header';
+@import './components/newsCard';
+@import './components/them-switcher';
 @import './date';
+

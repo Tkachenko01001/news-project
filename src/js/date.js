@@ -2,6 +2,8 @@ const picked = document.getElementById('picked');
 const month = document.getElementById('month');
 const calendar = document.getElementById('calendar');
 
+picked.innerHTML = `${DATE.new()}/${thisMonth + 1}/${year}`;
+
 const DATE = new Date();
 let thisMonth = DATE.getMonth();
 let year = DATE.getFullYear();
@@ -21,7 +23,7 @@ const MONTHS = [
   'December',
 ];
 
-picked.innerHTML = `${DATE.getDate()}/${thisMonth + 1}/${year}`;
+
 
 const createCalendar = () => {
   month.innerHTML = `${MONTHS[thisMonth]}, ${year}`;
