@@ -1,15 +1,15 @@
 import axios from 'axios';
 import { format, parse } from 'date-fns';
-
-const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather?lat=';
-const API_KEY = 'db193b635ac782b3b1dc7e0069e34820';
+import {weatherCardMarkup} from './weather-card-markup';
 
 export async function getWeather(lat, lon) {
+    const ENDPOINT = 'https://api.openweathermap.org/data/2.5/weather?';
+    const API_KEY = 'db193b635ac782b3b1dc7e0069e34820';
 
     try {
-        const data = await axios.get(`${ENDPOINT}${lat}&lon=${lon}&appid=${API_KEY}`);
+        const data = await axios.get(`${ENDPOINT}lat=${lat}&lon=${lon}&appid=${API_KEY}`);
       
-        const result = {
+        let result = {
             location: data.data.name,
             temp: Math.round(data.data.main.temp-273.15),
             weather: data.data.weather[0].main,
@@ -20,6 +20,14 @@ export async function getWeather(lat, lon) {
 
         return result
     
-        } catch (error) {
+    } catch (error) {
+        console.log(error);
     }
 }
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    getWeather(lat, lon);
+    weatherCardMarkup(lat, lon);
+});
