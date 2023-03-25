@@ -6,7 +6,8 @@ const bodyEl = document.querySelector('body');
 const pointerLight = document.querySelector('#light');
 const pointerDark = document.querySelector('#dark');
 const borderEl = document.querySelector('.header');
-const mobileMenu = document.querySelector('.menu-container')
+const mobileMenu = document.querySelector('.menu-container');
+const inputEl = document.querySelector('.search-input');
 
 const THEME_KEY = 'selected_theme';
 
@@ -24,7 +25,7 @@ const applyTheme = (isNightTheme) => {
     pointerDark.classList.add('pointer--night');
     borderEl.classList.add('header--night');
     mobileMenu.classList.add('night--theme');
-
+    inputEl.classList.add('search-input--dark');
   }
   
   else {
@@ -37,6 +38,7 @@ const applyTheme = (isNightTheme) => {
     pointerDark.classList.remove('pointer--night');
     borderEl.classList.remove('header--night');
     mobileMenu.classList.remove('night--theme');
+    inputEl.classList.remove('search-input--dark');
   }
 }
 

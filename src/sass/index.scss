@@ -2,8 +2,8 @@
 @import './utils/reset';
 @import './utils/variables';
 @import './utils/utilities';
-@import './header';
+@import './components/header';
+@import './components/search-button';
 @import './components/newsCard';
 @import './components/them-switcher';
-@import './date';
-
+@import './components/flatpickr';

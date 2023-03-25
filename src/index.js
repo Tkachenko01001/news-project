@@ -8,4 +8,3 @@ import {
   themSwitch,
   mobileMenu,
 } from './js/theme-switcher';
-import './js/date.js';

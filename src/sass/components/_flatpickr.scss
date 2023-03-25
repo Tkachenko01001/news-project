@@ -1,0 +1,58 @@
+.datetime-picker {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.02em;
+  color: #111321;
+  opacity: 0.4;
+  width: 168px;
+  height: 31px;
+  cursor: pointer;
+  border: 1px solid #111321;
+  border-radius: 20px;
+}
+
+.flatpickr-calendar {
+  max-width: 308px;
+}
+
+.datetime-picker:hover {
+  cursor: pointer;
+  background: $accent-color;
+  color: $white-color;
+  border-radius: 20px;
+  opacity: 1;
+}
+.flatpickr-calendar .flatpickr-day.selected {
+  background: $accent-color;
+}
+/* .flatpickr-calendar .flatpickr-next-month:hover,
+.flatpickr-calendar .flatpickr-prev-month {
+  fill: $accent-color;
+} */
+
+/* #picked {
+ 
+  width: 77px;
+  height: 21px;
+  left: 46px;
+  top: 5px;
+
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  
+  letter-spacing: 0.02em;
+
+  color: #111321;
+
+  opacity: 0.4;
+}
+
+#picked:hover {
+  color: #ffffff;
+}  */
