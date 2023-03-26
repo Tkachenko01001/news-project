@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="container header__container">
+    <div class="container">
         <nav class="header__nav">
             <a href="./index.html" class="header__logo">News</a>
             <button type="button" class="menu__button" aria-expanded="false" aria-controls="mobile-menu">
@@ -10,8 +10,8 @@
             </button>
             <div class="menu-container" id="mobile-menu">
                 <ul class="nav-menu">
-                    <li class="nav-menu__item"><a href="./index.html" class="nav-menu__link nav-menu__link--active"><svg
-                                width="32" height="32" class="mobile-menu__icon">
+                    <li class="nav-menu__item"><a href="./index.html" class="nav-menu__link"><svg width="32" height="32"
+                                class="mobile-menu__icon">
                                 <use href="./images/symbol-defs.svg#icon-home"></use>
                             </svg> Home <svg width="24" height="24" class="icon-arrow-right">
                                 <use href="./images/symbol-defs.svg#icon-chevron-right"></use>
@@ -26,7 +26,19 @@
                                 <use href="./images/symbol-defs.svg#icon-read"></use>
                             </svg> Read</a></li>
                 </ul>
-                <div class="search">S</div>
+                <div>
+                    <div class="input-box">
+                        <form>
+                            <div class="icon-container">
+                                <svg width="20px" height="19px" class="search-icon">
+                                    <use href="./images/symbol-defs.svg#icon-search"></use>
+                                </svg>
+                            </div>
+
+                            <input class="search-input" id="search" type="search" placeholder="Search">
+                        </form>
+                    </div>
+                </div>
                 <div class="theme">
                     <span class="switcher-pointer" id="light">Light</span>
                     <svg width="18" height="18" class="theme__icon-sun">
@@ -50,4 +62,5 @@
         </nav>
     </div>
 </header>
-<script src="./js/mobile-menu.js"></script>
+<script src="./js/mobile-menu.js" type="module"></script>
+<script type="module" src="./js/get-current-page.js"></script>
