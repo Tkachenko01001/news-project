@@ -36,7 +36,7 @@
   }
 }
 .menu-container {
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: calc($tablet - 1px)) {
     transition: 0.2s;
     position: absolute;
     top: 100%;
@@ -89,7 +89,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 1.37;
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: calc($tablet - 1px)) {
       padding-top: 6px;
       padding-bottom: 6px;
       padding-left: 16px;
@@ -107,7 +107,7 @@
     color: $accent-color;
   }
   &__link--active {
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: calc($tablet - 1px)) {
       background-color: $accent-color;
       color: $light-color;
     }
@@ -136,7 +136,6 @@
     display: none;
   }
 }
-
 .menu__button {
   height: 34px;
   width: 34px;
