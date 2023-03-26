@@ -720,7 +720,13 @@ input[type=checkbox] {
     justify-content: flex-end;
   }
 }
+.flatpickr {
+  /* margin-left: 400px; */
+  position: relative;
+}
+
 .datetime-picker {
+  padding-left: 40px;
   font-family: "Manrope";
   font-style: normal;
   font-weight: 400;
@@ -728,12 +734,18 @@ input[type=checkbox] {
   line-height: 21px;
   letter-spacing: 0.02em;
   color: #111321;
-  opacity: 0.4;
+  /* opacity: 0.4; */
   width: 168px;
   height: 31px;
   cursor: pointer;
   border: 1px solid #111321;
   border-radius: 20px;
+}
+
+.icon-calendar {
+  position: absolute;
+  left: 8;
+  top: 7px;
 }
 
 .flatpickr-calendar {

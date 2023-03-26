@@ -7,10 +7,8 @@ const options = {
   disableMobile: 'true',
   dateFormat: 'd/m/Y',
   defaultDate: new Date(),
-  // minuteIncrement: 1,
-  // onClose(selectedDates) {
-  //   console.log(selectedDates[0]);
-  // },
+  confirmIcon: "<i></i>", 
+  confirmText: 'OK', 
 };
 
 flatpickr('#datetime-picker', options);
