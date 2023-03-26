@@ -2,7 +2,6 @@ const galleryFavorite = document.querySelector('.favorite__container');
 
 const LOCALSTORAGE_KEY = 'favorite';
 let favoriteNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
-console.log(favoriteNews);
 function renderFavoriteList(cards) {
   const markup = cards
     .map(
@@ -51,16 +50,13 @@ function removeFromFavorite(e) {
   if (e.target.nodeName !== 'svg') {
     return;
   }
-  const unFavoriteCard = {
-    id: e.target.parentNode.parentNode.parentNode.id,
-    card: e.target.parentNode.parentNode.parentNode.innerHTML,
-  };
+  const unFavoriteCard = e.target.parentNode.parentNode.parentNode;
   const indexCard = favoriteNews.findIndex(
     card => card.id === unFavoriteCard.id
   );
   favoriteNews.splice(indexCard, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(favoriteNews));
-  e.target.parentNode.parentNode.parentNode.remove();
+  unFavoriteCard.remove();
   return favoriteNews;
 }
 
