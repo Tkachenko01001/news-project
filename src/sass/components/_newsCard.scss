@@ -37,9 +37,26 @@
     object-fit: cover;
     overflow: hidden;
     border-radius: 4px;
-  }
+}
+}
 
-  &__title {
+.card__img-wrapper {
+    display: flex;
+    height: 395px;
+    width: 288px;
+    margin-bottom: 20px;
+    @media (min-width: $tablet) {
+        width: 353px;
+        height: 395px;
+        }
+    
+    @media (min-width: $desktop) {
+        width: 395px;
+        height: 395px;
+        }
+}
+
+.card__title {
     width: 100%;
     height: 99px;
     overflow: hidden;
@@ -119,6 +136,7 @@
   &__date {
     position: absolute;
     left: 1px;
+    width: 74px;
     height: 19px;
     font-style: normal;
     font-weight: 400;
@@ -137,8 +155,9 @@
   &__favorite {
     position: absolute;
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content:center;
+    padding: 0 10px 0 0;
+ //   gap: 10px;
     align-items: center;
     width: 168px;
     height: 28px;
@@ -162,6 +181,7 @@
     font-size: 12px;
     line-height: 16px;
     text-align: center;
+    align-self: center;
     color: $dark-color;
   }
 
@@ -176,18 +196,17 @@
     border-radius: 0px 4px 4px 0px;
 
     font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1;
-    justify-content: center;
-    align-items: center;
-    color: $white-color;
-  }
-  &__favBtn {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 1;
+        justify-content: center;
+        align-items: center;
+        color: $white-color;
+}
+.card__favBtn {
     width: 16px;
     height: 16px;
     cursor: pointer;
     border-style: none;
     background: $white-color;
-  }
 }
