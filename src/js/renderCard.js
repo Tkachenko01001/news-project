@@ -1,9 +1,10 @@
+import * as FAVOR from './favoriteIcon-switcher';
 const galleryNews = document.querySelector('.galleryNews');
 
-const cardFavText = "Add to favorite";
+const cardFavText = 'Add to favorite';
 function renderCard(result) {
   const mediaUrl = result.media[0]['media-metadata'][2].url;
-  const mediaAlt = result.media[0]['media-metadata'].caption;
+  const mediaAlt = result.media[0].caption;
   const newsCategory = result.section;
   const title = result.title;
   const subscribe = result.abstract;
@@ -12,7 +13,7 @@ function renderCard(result) {
   const ID = result.id;
 
   const markup = `
-<div class="card">
+<div class="card" id=${ID}>
 <div class="card__img-wrapper">
 <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}"> 
 <span class="card__category">${newsCategory}</span>
@@ -36,3 +37,4 @@ function renderCard(result) {
     galleryNews.insertAdjacentHTML('beforeend', markup);
   }
 export default { renderCard };
+export { cardFavText };
