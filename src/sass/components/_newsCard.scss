@@ -15,6 +15,18 @@
   }
 }
 
+.weather-info {
+  margin-bottom: 28px;
+
+  @media screen and (min-width: $tablet) {
+    grid-area: 1/2;
+  }
+
+  @media screen and (min-width: $desktop) {
+    grid-area: 1/3;
+  }
+}
+
 .card {
   position: relative;
   width: 288px;
@@ -37,26 +49,26 @@
     object-fit: cover;
     overflow: hidden;
     border-radius: 4px;
-}
-}
+  }
 
-.card__img-wrapper {
+  &__img-wrapper {
     display: flex;
     height: 395px;
     width: 288px;
     margin-bottom: 20px;
-    @media (min-width: $tablet) {
-        width: 353px;
-        height: 395px;
-        }
-    
-    @media (min-width: $desktop) {
-        width: 395px;
-        height: 395px;
-        }
-}
 
-.card__title {
+    @media (min-width: $tablet) {
+      width: 353px;
+      height: 395px;
+    }
+
+    @media (min-width: $desktop) {
+      width: 395px;
+      height: 395px;
+    }
+  }
+
+  &__title {
     width: 100%;
     height: 99px;
     overflow: hidden;
@@ -155,7 +167,7 @@
   &__favorite {
     position: absolute;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     padding: 0 10px 0 0;
     align-items: center;
     width: 168px;
@@ -195,63 +207,64 @@
     border-radius: 0px 4px 4px 0px;
 
     font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1;
-        justify-content: center;
-        align-items: center;
-        color: $white-color;
-}
-.card__favBtn {
-    position: absolute;
-      display: flex;
-      padding: 0;
-      cursor: default;
-      right: 3px;
-      top: 50%;
-      transform: translateY(-50%);
-     width: 16px;
-     height: 16px;
-      border-radius: 40%;
-    border-style: none;
-   justify-content: center;
-  align-items: center;
-  background-color: inherit;
-  fill: $white-color;
-}
-
-.card__heart--fill {
-  position: absolute;
-  cursor: pointer;
-  fill: $switcher-accent-color;
-  animation-name: beat;
-    animation-duration: 1s;
-  
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
   }
-  
-  .card__heart {
+
+  &__favBtn {
+    position: absolute;
+    display: flex;
+    padding: 0;
+    cursor: default;
+    right: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border-radius: 40%;
+    border-style: none;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    fill: $white-color;
+  }
+
+  &__heart--fill {
+    position: absolute;
+    cursor: pointer;
+    fill: $switcher-accent-color;
+    animation-name: beat;
+    animation-duration: 1s;
+  }
+
+  &__heart {
     position: absolute;
     cursor: pointer;
     animation-name: unbeat;
     animation-duration: 1s;
   }
-  
-  @keyframes unbeat {
-    0% {
-      transform: translate(-7%) scale(1.13);
-    }
-  
-    50% {
-      transform: translate(11%) scale(0.8);
-    }
-  };
-  
-  @keyframes beat {
-    0% {
-      transform: translate(11%) scale(0.8);
-    }
-  
-    50% {
-      transform: translate(-7%) scale(1.13);
-    }
+}
+
+@keyframes unbeat {
+  0% {
+    transform: translate(-7%) scale(1.13);
   }
+
+  50% {
+    transform: translate(11%) scale(0.8);
+  }
+}
+
+@keyframes beat {
+  0% {
+    transform: translate(11%) scale(0.8);
+  }
+
+  50% {
+    transform: translate(-7%) scale(1.13);
+  }
+}
