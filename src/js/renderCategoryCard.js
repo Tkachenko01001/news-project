@@ -1,16 +1,21 @@
-import * as FAVOR from './favoriteIcon-switcher';
 const galleryNews = document.querySelector('.galleryNews');
 
 const cardFavText = 'Add to favorite';
-function renderCard(result) {
-  const mediaUrl = result.media[0]['media-metadata'][2].url;
-  const mediaAlt = result.media[0].caption;
+function renderCategoryCard(result) {
+  const mediaUrl = result.multimedia[2].url;
+  const mediaAlt = result.multimedia[2].caption;
   const newsCategory = result.section;
   const title = result.title;
   const subscribe = result.abstract;
-  const date = result.published_date;
-  const url = result.url;
-  const ID = result.id;
+ const date = Date.parse(result.published_date);
+//   const date =
+//     dateJS.getDate() +
+//     '-' +
+//    (dateJS.getMonth() + 1) +
+//    '-' +
+//    dateJS.getFullYear();
+   const url = result.url;
+   const ID = result.uri;
 
   const markup = `
 <div class="card" id=${ID}>
@@ -34,7 +39,7 @@ function renderCard(result) {
 </a>
 </div>
 `;
-    galleryNews.insertAdjacentHTML('beforeend', markup);
-  }
-export default { renderCard };
+  galleryNews.insertAdjacentHTML('beforeend', markup);
+}
+export default { renderCategoryCard };
 export { cardFavText };

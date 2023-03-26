@@ -13,7 +13,7 @@
   line-height: 21px;
   letter-spacing: 0.02em;
   color: #111321;
-  /* opacity: 0.4; */
+  opacity: 0.4;
   width: 168px;
   height: 31px;
   cursor: pointer;
@@ -22,8 +22,9 @@
 }
 .icon-calendar {
   position: absolute;
-  left: 8;
-  top: 7px;
+  left: 12px;
+  top: 6px;
+  fill: #4440f7;
 }
 .flatpickr-calendar {
   max-width: 308px;
@@ -36,6 +37,11 @@
   border-radius: 20px;
   opacity: 1;
 }
+
+.flatpickr:hover .icon-calendar  {
+  fill: white;  
+}
+
 .flatpickr-calendar .flatpickr-day.selected {
   background: $accent-color;
 }

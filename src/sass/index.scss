@@ -2,8 +2,11 @@
 @import './utils/reset';
 @import './utils/variables';
 @import './utils/utilities';
-@import './components/header';
-@import './components/search-button';
 @import './components/newsCard';
 @import './components/them-switcher';
 @import './components/flatpickr';
+@import './components/emptyQuery';
+@import './header';
+@import './search-button';
+@import './weather';
+@import './components/current-date';
