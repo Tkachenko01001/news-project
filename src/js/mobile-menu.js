@@ -1,3 +1,5 @@
+// import * as bodyScrollLock from 'body-scroll-lock';
+
 (() => {
   const mobileMenuRef = document.querySelector('.menu-container');
   const menuBtnRef = document.querySelector('.menu__button');
@@ -10,6 +12,11 @@
     menuBtnRef.classList.toggle('menu__button--open');
     headerRef.classList.toggle('header--menu-open');
     menuBtnRef.setAttribute('aria-expanded', !expanded);
+    // const scrollLockMethod = !expanded
+    //   ? 'disableBodyScroll'
+    //   : 'enableBodyScroll';
+
+    // bodyScrollLock[scrollLockMethod](document.body);
     if (!expanded) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -23,7 +30,7 @@
       headerRef.classList.remove('header--menu-open');
       menuBtnRef.classList.remove('menu__button--open');
       menuBtnRef.setAttribute('aria-expanded', false);
-      document.body.style.overflow = '';
+      bodyScrollLock.enableBodyScroll(document.body);
     });
   });
 })();
