@@ -77,7 +77,8 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -150,7 +151,7 @@ body {
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .menu-container {
     transition: 0.2s;
     position: absolute;
@@ -166,16 +167,14 @@ body {
 }
 @media screen and (min-width: 768px) {
   .menu-container {
-    transition: 0.2s;
     position: relative;
     display: flex;
     align-items: center;
   }
 }
-@media screen and (max-width: 768px) {
-  .menu-container--dark {
+@media screen and (min-width: 1280px) {
+  .menu-container {
     transition: 0.2s;
-    background-color: #2e2e2e;
   }
 }
 
@@ -217,7 +216,7 @@ body {
   font-size: 16px;
   line-height: 1.37;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .nav-menu__link {
     padding-top: 6px;
     padding-bottom: 6px;
@@ -238,7 +237,7 @@ body {
 .nav-menu__link:hover, .nav-menu__link:focus {
   color: #4440f6;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .nav-menu__link--active {
     background-color: #4440f6;
     color: #f4f4f4;
@@ -316,12 +315,22 @@ body {
   }
 }
 
-@media screen and (max-width: 768px) {
-  .input-box {
+@media screen and (max-width: 767px) {
+  .search-bar {
     position: absolute;
-    top: -55px;
+    top: 26px;
     right: 69px;
     max-width: 15px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .search-bar {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .input-box {
+    display: none;
   }
 }
 @media screen and (min-width: 768px) {
@@ -368,7 +377,7 @@ body {
   }
 }
 .search-input--dark {
-  border: 2px solid #f4f4f4;
+  border-color: #f4f4f4;
 }
 
 .open {
@@ -376,7 +385,7 @@ body {
   max-width: 173px;
   border: 1px solid;
   border-radius: 20px;
-  right: 54px;
+  right: 38px;
 }
 @media screen and (min-width: 768px) {
   .open {
@@ -588,7 +597,8 @@ body {
 }
 .card__img {
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }

@@ -1,7 +1,7 @@
 .search-bar {
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: calc($tablet - 1px)) {
     position: absolute;
-    top: -55px;
+    top: 26px;
     right: 69px;
     max-width: 15px;
   }
@@ -72,7 +72,7 @@
   max-width: 173px;
   border: 1px solid;
   border-radius: 20px;
-  right: 54px;
+  right: 38px;
 
   @media screen and (min-width: $tablet) {
     max-width: 213px;
