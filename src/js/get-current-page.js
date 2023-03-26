@@ -5,17 +5,17 @@ if (location.pathname === '/read.html') {
   );
 }
 switch (location.pathname) {
-  case '/index.html':
+  case '/news-project/index.html':
     menuRef.children[0].firstElementChild.classList.add(
       'nav-menu__link--active'
     );
     break;
-  case '/favorite.html':
+  case '/news-project/favorite.html':
     menuRef.children[1].firstElementChild.classList.add(
       'nav-menu__link--active'
     );
     break;
-  case '/read.html':
+  case '/news-project/read.html':
     menuRef.children[2].firstElementChild.classList.add(
       'nav-menu__link--active'
     );
