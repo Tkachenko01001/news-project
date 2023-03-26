@@ -8,9 +8,6 @@ async function fetchNews(categ) {
       `https://api.nytimes.com/svc/mostpopular/v2${categ}?api-key=${appID}`
     );
 
-    /* if (response.data.num_results === 0) {
-    } */
-
     response.data.results.map(element => {
       RENDERCARD.renderCard(element);
     });
