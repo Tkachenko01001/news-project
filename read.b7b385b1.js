@@ -1,2 +1,0 @@
-!function(){var e=document.querySelector(".nav-menu");switch("/read.html"===location.pathname&&e.lastElementChild.firstElementChild.classList.add("nav-menu__link--active"),location.pathname.endsWith){case"/news-project/index.html":default:e.children[0].firstElementChild.classList.add("nav-menu__link--active");break;case"/news-project/favorite.html":e.children[1].firstElementChild.classList.add("nav-menu__link--active");break;case"/news-project/read.html":e.children[2].firstElementChild.classList.add("nav-menu__link--active")}}();
-//# sourceMappingURL=read.b7b385b1.js.map
