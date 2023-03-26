@@ -1,5 +1,4 @@
 import { fetchCategories } from './fetchCategories';
-import './';
 
 const refs = {
   categoriesList: document.getElementById('categoriesList'),
