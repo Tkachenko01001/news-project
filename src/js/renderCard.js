@@ -9,10 +9,10 @@ function renderCard(result) {
   const subscribe = result.abstract;
   const date = result.published_date;
   const url = result.url;
-  const ID = result.id;
+  const id = result.id;
 
   const markup = `
-<div class="card" id="${ID}">
+<div class="card" id="${id}">
 <div class="card__img-wrapper">
 <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}"> 
 <span class="card__category">${newsCategory}</span>
