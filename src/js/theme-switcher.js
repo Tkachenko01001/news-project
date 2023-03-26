@@ -24,7 +24,7 @@ const applyTheme = (isNightTheme) => {
     pointerLight.classList.add('switcher-pointer--light');
     pointerDark.classList.add('pointer--night');
     borderEl.classList.add('header--night');
-    mobileMenu.classList.add('night--theme');
+    mobileMenu.classList.add('menu-container--dark');
     inputEl.classList.add('search-input--dark');
   }
   
@@ -37,7 +37,7 @@ const applyTheme = (isNightTheme) => {
     pointerLight.classList.remove('switcher-pointer--light');
     pointerDark.classList.remove('pointer--night');
     borderEl.classList.remove('header--night');
-    mobileMenu.classList.remove('night--theme');
+    mobileMenu.classList.remove('menu-container--dark');
     inputEl.classList.remove('search-input--dark');
   }
 }

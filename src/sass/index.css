@@ -152,6 +152,7 @@ body {
 
 @media screen and (max-width: 768px) {
   .menu-container {
+    transition: 0.2s;
     position: absolute;
     top: 100%;
     left: -16px;
@@ -165,13 +166,17 @@ body {
 }
 @media screen and (min-width: 768px) {
   .menu-container {
+    transition: 0.2s;
     position: relative;
     display: flex;
     align-items: center;
   }
 }
-.menu-container--dark {
-  background-color: #2e2e2e;
+@media screen and (max-width: 768px) {
+  .menu-container--dark {
+    transition: 0.2s;
+    background-color: #2e2e2e;
+  }
 }
 
 .menu-container--open {
@@ -363,7 +368,7 @@ body {
   }
 }
 .search-input--dark {
-  border: #f4f4f4;
+  border: 2px solid #f4f4f4;
 }
 
 .open {
