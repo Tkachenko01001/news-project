@@ -7,3 +7,4 @@ import {
   labelEl,
   themSwitch,
 } from './js/theme-switcher';
+import { weatherCardMarkup, weatherInfo } from './weather-card-markup';
