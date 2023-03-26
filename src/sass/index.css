@@ -328,6 +328,13 @@ body {
     display: none;
   }
 }
+.search-bar--hidden {
+  display: none;
+}
+.search-bar.open.search-bar--hidden {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .input-box {
     display: none;
