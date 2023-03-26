@@ -18,4 +18,5 @@ async function fetchNews(categ) {
         console.log(error)
     }
   }
+
 export default { fetchNews };
