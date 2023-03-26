@@ -65,11 +65,19 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .menu-container--dark {
+    background-color: $bg-dark-color;
+    transition: .2s;
+  }
+}
+
 .menu-container--open {
   // display: flex;
   // flex-direction: column;
   // justify-content: space-between;
   transform: translateY(0%);
+  transition: .2s;
 }
 .nav-menu {
   padding-top: 44px;

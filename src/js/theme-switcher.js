@@ -7,7 +7,8 @@ const pointerLight = document.querySelector('#light');
 const pointerDark = document.querySelector('#dark');
 const borderEl = document.querySelector('.header');
 const mobileMenu = document.querySelector('.menu-container');
-const inputEl = document.querySelector('.search-input');
+const inputEl = document.querySelector('#search');
+const nightInput = document.querySelector('[name="night-input"]')
 
 const THEME_KEY = 'selected_theme';
 
@@ -25,7 +26,8 @@ const applyTheme = (isNightTheme) => {
     pointerDark.classList.add('pointer--night');
     borderEl.classList.add('header--night');
     mobileMenu.classList.add('menu-container--dark');
-    inputEl.classList.add('search-input--dark');
+    inputEl.classList.add('search-input--night');
+    nightInput.classList.add('search-input--night')
   }
   
   else {
@@ -38,7 +40,8 @@ const applyTheme = (isNightTheme) => {
     pointerDark.classList.remove('pointer--night');
     borderEl.classList.remove('header--night');
     mobileMenu.classList.remove('menu-container--dark');
-    inputEl.classList.remove('search-input--dark');
+    inputEl.classList.remove('search-input--night');
+    nightInput.classList.remove('search-input--night');
   }
 }
 
@@ -57,3 +60,4 @@ applyTheme(isNightTheme);
 labelEl.addEventListener('click', onClickSwitch);
 
 export {applyTheme, onClickSwitch};
+

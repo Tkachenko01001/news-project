@@ -1,4 +1,5 @@
 .search-bar {
+  transition: .2s;
   @media screen and (max-width: calc($tablet - 1px)) {
     position: absolute;
     top: 26px;
@@ -58,7 +59,7 @@
     height: 31px;
     padding-left: 48px;
     border-radius: 20px;
-    border: 1px solid;
+    border: 1px solid $dark-color;
     border-radius: 20px;
   }
 
@@ -66,9 +67,13 @@
   }
 }
 
-.search-input--dark {
-  border-color: $light-color;
+@media screen and (min-width: $tablet) {
+  .search-input--night {
+    transition: .2s;
+    border: 1px solid $light-color;
+  }
 }
+
 
 .open {
   display: block;
@@ -152,7 +157,7 @@
 //   }
 // }
 
-// .search-input--dark {
+// .search-input--night {
 //   border-color: $light-color;
 // }
 

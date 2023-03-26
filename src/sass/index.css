@@ -184,8 +184,15 @@ body {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .menu-container--dark {
+    background-color: #2e2e2e;
+    transition: 0.2s;
+  }
+}
 .menu-container--open {
   transform: translateY(0%);
+  transition: 0.2s;
 }
 
 .nav-menu {
@@ -319,6 +326,9 @@ body {
   }
 }
 
+.search-bar {
+  transition: 0.2s;
+}
 @media screen and (max-width: 767px) {
   .search-bar {
     position: absolute;
@@ -383,14 +393,16 @@ body {
     height: 31px;
     padding-left: 48px;
     border-radius: 20px;
-    border: 1px solid;
+    border: 1px solid #111321;
     border-radius: 20px;
   }
 }
-.search-input--dark {
-  border-color: #f4f4f4;
+@media screen and (min-width: 768px) {
+  .search-input--night {
+    transition: 0.2s;
+    border: 1px solid #f4f4f4;
+  }
 }
-
 .open {
   display: block;
   max-width: 173px;
