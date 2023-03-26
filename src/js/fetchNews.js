@@ -4,6 +4,7 @@ import axios from 'axios';
 const appID = 'IIf4vmmTbfNyDLUoXuoPyrjTHkEJuSUj';
 
 async function fetchNews(categ) {
+
   fetch(`https://api.nytimes.com/svc/mostpopular/v2${categ}?api-key=${appID}`)
     
     try {
@@ -16,5 +17,5 @@ async function fetchNews(categ) {
     catch (error) { 
         console.log(error)
     }
-}
+  }
 export default { fetchNews };
