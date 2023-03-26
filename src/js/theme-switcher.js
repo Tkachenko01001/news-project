@@ -56,4 +56,4 @@ applyTheme(isNightTheme);
 
 labelEl.addEventListener('click', onClickSwitch);
 
-export {themeSwitch, iconSun, iconMoon, labelEl, bodyEl, pointerLight, pointerDark, borderEl, mobileMenu};
+export {applyTheme, onClickSwitch};

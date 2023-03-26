@@ -19,3 +19,5 @@ function date() {
 
 /* show current date with id "current_date" */
 document.getElementById('current_date').innerHTML = date();
+
+export {date, zero_first_format};
