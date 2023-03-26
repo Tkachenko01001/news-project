@@ -2,6 +2,7 @@
   const mobileMenuRef = document.querySelector('.menu-container');
   const menuBtnRef = document.querySelector('.menu__button');
   const headerRef = document.querySelector('.header');
+  const inputBox = document.querySelector('.search-bar');
 
   menuBtnRef.addEventListener('click', () => {
     const expanded =
@@ -9,7 +10,9 @@
     mobileMenuRef.classList.toggle('menu-container--open');
     menuBtnRef.classList.toggle('menu__button--open');
     headerRef.classList.toggle('header--menu-open');
+    inputBox.classList.toggle('search-bar--hidden');
     menuBtnRef.setAttribute('aria-expanded', !expanded);
+
     if (!expanded) {
       document.body.style.overflow = 'hidden';
     } else {

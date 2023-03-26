@@ -111,6 +111,7 @@ body {
 
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-bottom 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header__logo {
   font-family: "Manrope";
@@ -153,6 +154,9 @@ body {
 
 @media screen and (max-width: 767px) {
   .menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: 0.2s;
     position: absolute;
     top: 100%;
@@ -160,9 +164,11 @@ body {
     width: 320px;
     height: calc(100vh - 80px);
     z-index: 999;
-    display: none;
+    overflow: hidden;
     background-color: #f4f4f4;
     padding-bottom: 100px;
+    transform: translateY(-120%);
+    transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 @media screen and (min-width: 768px) {
@@ -179,9 +185,7 @@ body {
 }
 
 .menu-container--open {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  transform: translateY(0%);
 }
 
 .nav-menu {
@@ -328,6 +332,13 @@ body {
     display: none;
   }
 }
+.search-bar--hidden {
+  display: none;
+}
+.search-bar.open.search-bar--hidden {
+  display: none;
+}
+
 @media screen and (max-width: 767px) {
   .input-box {
     display: none;

@@ -9,8 +9,11 @@
   @media screen and (min-width: $tablet) {
     display: none;
   }
-
-  @media screen and (min-width: $desktop) {
+  &--hidden {
+    display: none;
+  }
+  &.open.search-bar--hidden {
+    display: none;
   }
 }
 .input-box {
