@@ -37,6 +37,7 @@
 }
 .menu-container {
   @media screen and (max-width: $tablet) {
+    transition: 0.2s;
     position: absolute;
     top: 100%;
     left: -16px;
@@ -53,11 +54,10 @@
     align-items: center;
   }
   @media screen and (min-width: $desktop) {
+    transition: 0.2s;
   }
 }
-.menu-container--dark {
-  background-color: $bg-dark-color;
-}
+
 .menu-container--open {
   display: flex;
   flex-direction: column;
