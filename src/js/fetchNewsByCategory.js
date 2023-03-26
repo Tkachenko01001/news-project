@@ -8,14 +8,29 @@ const ENDPOINT = 'https://api.nytimes.com/svc/news/v3/content/nyt/';
 
 async function fetchNews(categ) {
   try {
-    const response = await axios.get(`${ENDPOINT}${categ}.json?api-key=${appID}`);
-      response.data.results
-        .map(element => {
-          RENDERCATEGORYCARD.renderCategoryCard(element);
-        })
-        .join('');
-  } catch (error) {
-    console.log(error);
+    const response = await axios.get(
+      `${ENDPOINT}${categ}.json?api-key=${appID}`
+    );
+    response.data.results
+      .map(element => {
+        RENDERCATEGORYCARD.renderCategoryCard(element);
+      })
+      .join('');
+  } catch {
+    (function (error) {
+      console.log(error);
+      console.log(error.response);
+      if (error.response) {
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        console.log(error.request);
+      } else {
+        console.log('Error', error.message);
+      }
+      console.log(error.config);
+    });
   }
 }
 
