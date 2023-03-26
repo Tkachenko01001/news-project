@@ -8,7 +8,7 @@ export async function getWeather(lat, lon) {
 
     try {
         const data = await axios.get(`${ENDPOINT}lat=${lat}&lon=${lon}&appid=${API_KEY}`);
-      
+
         let result = {
             location: data.data.name,
             temp: Math.round(data.data.main.temp-273.15),
@@ -18,16 +18,31 @@ export async function getWeather(lat, lon) {
             day: format(Date.now(), 'iii'),
         }
 
-        return result
-    
+        return result;
+
     } catch (error) {
         console.log(error);
     }
 }
 
-navigator.geolocation.getCurrentPosition(function(position) {
-    let lat = position.coords.latitude;
-    let lon = position.coords.longitude;
-    getWeather(lat, lon);
-    weatherCardMarkup(lat, lon);
-});
+
+const geolocationDetermination = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+                getWeather(lat, lon);
+                weatherCardMarkup(lat, lon);
+            },
+            (error) => {
+                console.error(error);
+                const newYorkLat = 40.7128;
+                const newYorkLon = -74.0060;
+                getWeather(newYorkLat, newYorkLon);
+                weatherCardMarkup(newYorkLat, newYorkLon);
+            }
+        );
+    } 
+}
+geolocationDetermination();
