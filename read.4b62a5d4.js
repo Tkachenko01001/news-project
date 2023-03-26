@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector(".nav-menu"),i=location.pathname.match(/[^/]+\.html/i);if(null===i)e.children[0].firstElementChild.classList.add("nav-menu__link--active");else switch(i[0]){case"index.html":default:e.children[0].firstElementChild.classList.add("nav-menu__link--active");break;case"favorite.html":e.children[1].firstElementChild.classList.add("nav-menu__link--active");break;case"read.html":e.children[2].firstElementChild.classList.add("nav-menu__link--active")}}();
+//# sourceMappingURL=read.4b62a5d4.js.map
