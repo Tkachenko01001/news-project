@@ -1,0 +1,25 @@
+.empty-query__img {
+  margin: 0 auto;
+  background-color: #f4f4f4;
+}
+
+.empty-query {
+  &__title {
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: $dark-color;
+
+    @media screen and (min-width: 768px) {
+      font-size: 40px;
+      line-height: 55px;
+    }
+  }
+
+  &__thumb {
+    margin-bottom: 60px;
+  }
+}
