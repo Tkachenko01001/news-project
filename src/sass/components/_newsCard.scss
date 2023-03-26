@@ -14,7 +14,21 @@
     gap: 100px 50px;
   }
 }
-
+.card__title {
+  width: 100%;
+  height: 99px;
+  overflow: hidden;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px 0;
+  @media (min-width: $tablet) {
+    height: 132px;
+    font-size: 32px;
+  }
+}
 .card {
   position: relative;
   width: 288px;
@@ -37,39 +51,6 @@
     object-fit: cover;
     overflow: hidden;
     border-radius: 4px;
-}
-}
-
-.card__img-wrapper {
-    display: flex;
-    height: 395px;
-    width: 288px;
-    margin-bottom: 20px;
-    @media (min-width: $tablet) {
-        width: 353px;
-        height: 395px;
-        }
-    
-    @media (min-width: $desktop) {
-        width: 395px;
-        height: 395px;
-        }
-}
-
-.card__title {
-    width: 100%;
-    height: 99px;
-    overflow: hidden;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 1.37;
-    letter-spacing: -0.01em;
-    margin: 0 0 20px 0;
-    @media (min-width: $tablet) {
-      height: 132px;
-      font-size: 32px;
-    }
   }
 
   &__img-wrapper {
@@ -155,7 +136,7 @@
   &__favorite {
     position: absolute;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     padding: 0 10px 0 0;
     align-items: center;
     width: 168px;
@@ -195,26 +176,27 @@
     border-radius: 0px 4px 4px 0px;
 
     font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: 1;
-        justify-content: center;
-        align-items: center;
-        color: $white-color;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1;
+    justify-content: center;
+    align-items: center;
+    color: $white-color;
+  }
 }
 .card__favBtn {
-    position: absolute;
-      display: flex;
-      padding: 0;
-      cursor: default;
-      right: 3px;
-      top: 50%;
-      transform: translateY(-50%);
-     width: 16px;
-     height: 16px;
-      border-radius: 40%;
-    border-style: none;
-   justify-content: center;
+  position: absolute;
+  display: flex;
+  padding: 0;
+  cursor: default;
+  right: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 40%;
+  border-style: none;
+  justify-content: center;
   align-items: center;
   background-color: inherit;
   fill: $white-color;
@@ -225,33 +207,32 @@
   cursor: pointer;
   fill: $switcher-accent-color;
   animation-name: beat;
-    animation-duration: 1s;
-  
+  animation-duration: 1s;
+}
+
+.card__heart {
+  position: absolute;
+  cursor: pointer;
+  animation-name: unbeat;
+  animation-duration: 1s;
+}
+
+@keyframes unbeat {
+  0% {
+    transform: translate(-7%) scale(1.13);
   }
-  
-  .card__heart {
-    position: absolute;
-    cursor: pointer;
-    animation-name: unbeat;
-    animation-duration: 1s;
+
+  50% {
+    transform: translate(11%) scale(0.8);
   }
-  
-  @keyframes unbeat {
-    0% {
-      transform: translate(-7%) scale(1.13);
-    }
-  
-    50% {
-      transform: translate(11%) scale(0.8);
-    }
-  };
-  
-  @keyframes beat {
-    0% {
-      transform: translate(11%) scale(0.8);
-    }
-  
-    50% {
-      transform: translate(-7%) scale(1.13);
-    }
+}
+
+@keyframes beat {
+  0% {
+    transform: translate(11%) scale(0.8);
   }
+
+  50% {
+    transform: translate(-7%) scale(1.13);
+  }
+}
