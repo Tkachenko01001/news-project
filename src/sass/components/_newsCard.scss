@@ -97,7 +97,7 @@
 .card__date {
     position: absolute;
     left: 1px;
-    width: 74px;
+    width: 79px;
     height: 19px;
     font-style: normal;
     font-weight: 400;
@@ -117,8 +117,9 @@
 .card__favorite {
     position: absolute;
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    justify-content:center;
+    padding: 0 10px 0 0;
+ //   gap: 10px;
     align-items: center;
     width: 168px;
     height: 28px;
@@ -142,6 +143,7 @@
     font-size: 12px;
     line-height: 16px;
     text-align: center;
+    align-self: center;
     color: $dark-color;
 }
 
@@ -164,15 +166,49 @@
         color: $white-color;
 }
 .card__favBtn {
-    width: 16px;
-    height: 16px;
-    cursor: pointer;
+    position:absolute;
+    display: flex;
+    padding: 0;
+    cursor:default;
+    right:3px;
+    top:50%;
+    transform:translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border-radius: 40%;
     border-style: none;
-    background: $white-color;
-    background: url("../images/symbol-defs.svg#icon-heart-white");
-    fill: none;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+   fill: $white-color;
+
 }
-.card__favBtn--fill {
+.card__heart--fill {
+   position: absolute;
+    cursor: pointer;
     fill: $switcher-accent-color;
-    stroke: $switcher-dark-color;
+    animation-name: beat;
+    animation-duration: 1s;
+
 }
+.card__heart{
+    position: absolute;
+    cursor: pointer;
+    animation-name:unbeat;
+    animation-duration: 1s;
+}
+@keyframes unbeat {
+    0% {
+        transform: translate(-7%) scale(1.13);
+    }
+    50% {
+        transform: translate(11%) scale(0.8);
+    }};
+    @keyframes beat {
+    0% {
+        transform: translate(11%) scale(0.8);
+        }
+    50% {
+        transform: translate(-7%) scale(1.13);
+            }
+        }

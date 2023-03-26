@@ -9,7 +9,7 @@ async function fetchNews(categ) {
     try {
         const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2${categ}?api-key=${appID}`)
         response.data.results.map(element => {
-          RENDERCARD.renderCard(element);  
+            RENDERCARD.renderCard(element);
         })
         
     }
