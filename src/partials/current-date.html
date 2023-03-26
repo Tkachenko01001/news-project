@@ -1,10 +1,35 @@
-<div class="data-container">
-  <button class="current_date">
-    <div>
-      <svg width="16.67" height="16.67" class="icon-calendar">
-        <use href="/src/images/symbol-defs.svg#icon-calendar"></use>
-      </svg>
+<!-- Filter Categories -->
+<section class="container">
+  <div class="filter-wrapper">
+    <div class="filter-wrapper--categories filters"></div>
+    <div class="filters--others"></div>
+
+    <!-- Calendar -->
+    <div class="filter-wrapper--date">
+      <div class="date">
+        <label class="date-label">Search date news</label>
+        <div class="date-input">
+          <input
+            type="text"
+            class="date-picker"
+            id="date-picker"
+            placeholder="Search date..."
+          />
+          <svg
+            class="date-svg-calendar flatpickr-input"
+            width="20px"
+            height="20px"
+          >
+            <use href="./images/symbol-defs.svg#icon-date"></use>
+          </svg>
+          <svg class="date-down" width="20px" height="20px">
+            <use href="./images/symbol-defs.svg#icon-down"></use>
+          </svg>
+          <svg class="date-up" width="20px" height="20px">
+            <use href="./images/symbol-defs.svg#icon-down"></use>
+          </svg>
+        </div>
+      </div>
     </div>
-    <div class="date_text" id="current_date"></div>
-  </button>
-</div>
+  </div>
+</section>
