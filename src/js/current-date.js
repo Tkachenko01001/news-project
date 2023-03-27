@@ -1,6 +1,5 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-// import { filterByDateMostViwed } from './fetchData/filters';
 
 const datePicker = document.querySelector('#date-picker');
 const dateInput = document.querySelector('.date-input');
@@ -12,7 +11,6 @@ const calendarSvg = document.querySelector('.date-svg-calendar');
 let selectedDate;
 
 const options = {
-  //allowInput: true,
   dateFormat: 'd/m/Y',
   locale: 'en',
   onChange: function (selectedDates) {
