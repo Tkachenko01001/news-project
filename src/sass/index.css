@@ -990,9 +990,9 @@ input[type=checkbox] {
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  margin-top: 28px;
-  margin-right: 52px;
-  margin-bottom: 60px;
+  margin-top: 24px;
+  margin-right: 16px;
+  margin-bottom: 40px;
 }
 @media screen and (min-width: 768px) {
   .filter-wrapper--date .date {
@@ -1002,6 +1002,7 @@ input[type=checkbox] {
 }
 @media screen and (min-width: 1280px) {
   .filter-wrapper--date .date {
+    margin-top: 28px;
     margin-right: 16px;
     margin-bottom: 40px;
   }
