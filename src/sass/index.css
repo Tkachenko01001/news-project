@@ -842,6 +842,18 @@ body {
     transform: translate(-7%) scale(1.13);
   }
 }
+.card__read {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  position: absolute;
+  right: 31px;
+  top: 16px;
+  color: #00B912;
+}
+
 .night--theme {
   background-color: #2e2e2e;
   color: #f4f4f4;
