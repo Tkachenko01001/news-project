@@ -1,6 +1,3 @@
---primary-text-color: #111321;
---light-color: #f4f4f4;
-
 .filter-wrapper--date .date {
   display: flex;
   flex-direction: row;
@@ -12,13 +9,13 @@ body .date-label {
 
   @media screen and (min-width: 1280px) {
     display: block;
-    color: var(--primary-text-color);
+    color: #111321;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.375;
 
     &.dark-theme {
-      color: var(--light-color);
+      color: #f4f4f4;
     }
   }
 }
@@ -38,7 +35,7 @@ body .date-label {
   width: 152px;
   height: 31px;
   left: 0px;
-  background-color: var(--light-color);
+  background-color: #f4f4f4;
 
   border: 1px solid #111321;
   outline: none;
