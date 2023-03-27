@@ -1123,6 +1123,10 @@ body .flatpickr-months .flatpickr-prev-month {
   opacity: 1;
 }
 
+.flapickr-input.active::placeholder {
+  color: white;
+  opacity: 1;
+}
 .date-input:hover ::placeholder,
 .date-input:focus-within ::placeholder {
   color: white;

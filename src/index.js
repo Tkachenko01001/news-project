@@ -8,13 +8,11 @@ import './js/add-to-favorite';
 
 import { NYTNewsAPI } from './js/fetchNews';
 
-
 const galleryNews = document.querySelector('.galleryNews');
-
 
 async function renderCard() {
   const data = await NYTNewsAPI.getPopularNews();
-    
+
   try {
     data.results
       .map(e => {
@@ -55,13 +53,12 @@ async function renderCard() {
         galleryNews.insertAdjacentHTML('beforeend', markup);
       })
       .join('');
-  }
-  catch (error) {
+  } catch (error) {
     console.log(error);
   }
 }
 
-renderCard()
+renderCard();
 
 
 //   galleryNews.addEventListener('click', (e) => {
