@@ -18,12 +18,10 @@
 }
 
 body .date-label {
-  color: #4440f6;
   display: none;
 
   @media screen and (min-width: 1280px) {
     display: block;
-    color: #111321;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.375;
@@ -35,14 +33,14 @@ body .date-label {
 }
 
 .date-input {
-  color: #4440f6;
+  fill: #4440f6;
   display: flex;
   position: relative;
   overflow: hidden;
   background-color: transparent;
 }
 .date-input:hover {
-  color: white; 
+  fill: #f4f4f4; 
 }
 
 .date-picker {
@@ -52,13 +50,15 @@ body .date-label {
   width: 152px;
   height: 31px;
   left: 0px;
-  background-color: #f4f4f4;
-
+  background-color: inherit;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
   padding-left: 46px;
   font-size: 12px;
+  &:hover {
+    background-color: #4440f6;
+  }
   @media screen and (min-width: 768px) {
     font-size: 14px;
     width: 168px;
@@ -78,7 +78,6 @@ body .date-label {
 } */
 .date-label {
   margin-right: 37px;
-  color: #111321;
   font-size: 24px;
 }
 :placeholder-shown {
@@ -92,11 +91,9 @@ body .date-label {
   position: absolute;
   margin-top: 6px;
   margin-left: 12px;
-  fill: currentColor;
 }
 
 .date-down {
-  fill: currentColor;
   margin-right: 10px;
   margin-top: 6px;
   position: absolute;
@@ -104,6 +101,7 @@ body .date-label {
   right: 1px;
   transform: translateY(-50%);
 }
+
 .date-up {
   display: none;
   fill: #f8f8f8;

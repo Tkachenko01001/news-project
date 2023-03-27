@@ -988,13 +988,11 @@ input[type=checkbox] {
 }
 
 body .date-label {
-  color: #4440f6;
   display: none;
 }
 @media screen and (min-width: 1280px) {
   body .date-label {
     display: block;
-    color: #111321;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.375;
@@ -1005,7 +1003,7 @@ body .date-label {
 }
 
 .date-input {
-  color: #4440f6;
+  fill: #4440f6;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -1013,7 +1011,7 @@ body .date-label {
 }
 
 .date-input:hover {
-  color: white;
+  fill: #f4f4f4;
 }
 
 .date-picker {
@@ -1022,12 +1020,15 @@ body .date-label {
   width: 152px;
   height: 31px;
   left: 0px;
-  background-color: #f4f4f4;
+  background-color: inherit;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
   padding-left: 46px;
   font-size: 12px;
+}
+.date-picker:hover {
+  background-color: #4440f6;
 }
 @media screen and (min-width: 768px) {
   .date-picker {
@@ -1051,7 +1052,6 @@ body .date-label {
 } */
 .date-label {
   margin-right: 37px;
-  color: #111321;
   font-size: 24px;
 }
 
@@ -1075,11 +1075,9 @@ body .date-label {
   position: absolute;
   margin-top: 6px;
   margin-left: 12px;
-  fill: currentColor;
 }
 
 .date-down {
-  fill: currentColor;
   margin-right: 10px;
   margin-top: 6px;
   position: absolute;
@@ -1123,10 +1121,6 @@ body .flatpickr-months .flatpickr-prev-month {
   opacity: 1;
 }
 
-.flapickr-input.active::placeholder {
-  color: white;
-  opacity: 1;
-}
 .date-input:hover ::placeholder,
 .date-input:focus-within ::placeholder {
   color: white;
