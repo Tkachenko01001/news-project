@@ -994,6 +994,18 @@ input[type=checkbox] {
   margin-right: 52px;
   margin-bottom: 60px;
 }
+@media screen and (min-width: 768px) {
+  .filter-wrapper--date .date {
+    margin-right: 16px;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .filter-wrapper--date .date {
+    margin-right: 16px;
+    margin-bottom: 40px;
+  }
+}
 
 body .date-label {
   color: #4440f6;
