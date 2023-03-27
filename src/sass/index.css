@@ -1148,4 +1148,60 @@ body .flatpickr-months .flatpickr-prev-month {
 
 .flatpickr-calendar {
   max-width: 308px;
+}
+
+.favorite {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .favorite {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite {
+    padding-top: 60px;
+    padding-bottom: 300px;
+  }
+}
+
+.favorite__container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(323px, auto));
+    grid-auto-rows: 675px;
+    grid-gap: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__container {
+    grid-template-columns: repeat(auto-fit, minmax(362px, auto));
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
+  }
+}
+
+.favorite__item {
+  margin: 0 auto;
+  width: 288px;
+  height: 630px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__item {
+    width: 353px;
+    height: 675px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item {
+    width: 395px;
+  }
 }/*# sourceMappingURL=index.css.map */
