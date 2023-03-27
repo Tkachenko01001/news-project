@@ -15,7 +15,7 @@ const options = {
   locale: 'en',
   onChange: function (selectedDates) {
     selectedDate = selectedDates[0];
-
+    console.log(selectedDate);
     datePicker.style.backgroundColor = '#4440F6';
     datePicker.style.color = '#F8F8F8';
     datePicker.style.border = '#4440F6';
