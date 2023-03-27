@@ -4,7 +4,7 @@ import './js/theme-switcher';
 import './weather-card-markup';
 import './js/current-date';
 import './js/add-to-read';
-import './js/add-to-favorite';
+// import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
 
 
@@ -56,19 +56,19 @@ async function renderCard() {
 renderCard()
 
 
-  galleryNews.addEventListener('click', (e) => {
-    if (e.target.closest('.card__heart')) {
-        e.target.classList.add('card__heart--fill');
-        e.target.classList.remove('card__heart');
-      e.target.parentElement.parentElement.previousElementSibling.textContent =
-        'Remove from favorite';
-        return
-    };
-    if (e.target.closest('.card__heart--fill')) {
-        e.target.classList.remove('card__heart--fill');
-        e.target.classList.add('card__heart');
-        e.target.parentElement.parentElement.previousElementSibling.textContent =
-          'Add to favorite';
-    }
-  }
-);
+//   galleryNews.addEventListener('click', (e) => {
+//     if (e.target.closest('.card__heart')) {
+//         e.target.classList.add('card__heart--fill');
+//         e.target.classList.remove('card__heart');
+//       e.target.parentElement.parentElement.previousElementSibling.textContent =
+//         'Remove from favorite';
+//         return
+//     };
+//     if (e.target.closest('.card__heart--fill')) {
+//         e.target.classList.remove('card__heart--fill');
+//         e.target.classList.add('card__heart');
+//         e.target.parentElement.parentElement.previousElementSibling.textContent =
+//           'Add to favorite';
+//     }
+//   }
+// );

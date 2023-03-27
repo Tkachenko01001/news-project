@@ -816,27 +816,14 @@ body {
   position: absolute;
   cursor: pointer;
   fill: #4b48db;
-  -webkit-animation-name: beat;
-          animation-name: beat;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-name: beat;
+  animation-duration: 1s;
 }
 .card__heart {
   position: absolute;
   cursor: pointer;
-  -webkit-animation-name: unbeat;
-          animation-name: unbeat;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-@-webkit-keyframes unbeat {
-  0% {
-    transform: translate(-7%) scale(1.13);
-  }
-  50% {
-    transform: translate(11%) scale(0.8);
-  }
+  animation-name: unbeat;
+  animation-duration: 1s;
 }
 
 @keyframes unbeat {
@@ -845,14 +832,6 @@ body {
   }
   50% {
     transform: translate(11%) scale(0.8);
-  }
-}
-@-webkit-keyframes beat {
-  0% {
-    transform: translate(11%) scale(0.8);
-  }
-  50% {
-    transform: translate(-7%) scale(1.13);
   }
 }
 @keyframes beat {
@@ -1033,6 +1012,10 @@ body .date-label {
   background-color: transparent;
 }
 
+.date-input:hover {
+  color: white;
+}
+
 .date-picker {
   display: flex;
   justify-content: flex-end;
@@ -1058,14 +1041,14 @@ body .date-label {
   }
 }
 
-.date-picker .flatpickr-input.active,
+/* .date-picker .flatpickr-input.active,
 .date-picker .flatpickr-input:hover {
   outline: none;
   border: 1px solid #4440f6;
   color: #ffffff;
   background-color: #4440f6;
-}
-
+  fill: white;
+} */
 .date-label {
   margin-right: 37px;
   color: #111321;
@@ -1076,18 +1059,11 @@ body .date-label {
   font-size: 12px;
 }
 
-:-ms-input-placeholder {
-  font-size: 12px;
-}
-
 :placeholder-shown {
   font-size: 12px;
 }
 @media screen and (min-width: 768px) {
   :-moz-placeholder-shown {
-    font-size: 14px;
-  }
-  :-ms-input-placeholder {
     font-size: 14px;
   }
   :placeholder-shown {
@@ -1142,26 +1118,30 @@ body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
 }
 
-.flapickr-input.active::-moz-placeholder {
+.date-input:hover ::-moz-placeholder, .date-input:focus-within ::-moz-placeholder {
   color: white;
   opacity: 1;
 }
 
-.flapickr-input.active:-ms-input-placeholder {
+.date-input:hover ::placeholder,
+.date-input:focus-within ::placeholder {
   color: white;
   opacity: 1;
 }
 
-.flapickr-input.active::placeholder {
-  color: white;
-  opacity: 1;
+.date-input:hover .date-picker {
+  background-color: #4440f6;
 }
 
-.date-input:hover ~ .date-down,
-.date-input:hover ~ .date-svg-calendar {
+/* .date-picker .flatpickr-input.active ::placeholder,
+.date-picker:hover ::placeholder {
+  color: white;
+  opacity: 1;
+} */
+/* .flatpickr-input.date-picker.active:hover ~.date-down,
+.flatpickr-input.date-picker.active:hover ~.date-svg-calendar {
   fill: white;
-}
-
+} */
 .flatpickr-calendar .flatpickr-day.selected {
   background: #4440f6;
 }
