@@ -1,22 +1,26 @@
-import RENDERCARD from './renderCard';
 import axios from 'axios';
-
 const appID = 'IIf4vmmTbfNyDLUoXuoPyrjTHkEJuSUj';
 
-async function fetchNews(categ) {
-    
-    try {
-        const response = await axios.get(`https://api.nytimes.com${categ}?api-key=${appID}`)
-        response.data.results
-          .map(element => {
-            RENDERCARD.renderCard(element);
-          })
-          .join('');
-        
-    }
-    catch (error) { 
-        console.log(error)
-    }
-  }
+// export async function fetchNews() {
+//   try {
+//     const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${appID}`);
+//     return response.data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-export default { fetchNews };
+export class NYTNewsAPI {
+  static async getPopularNews() {
+    const response = await axios.get(`https://api.nytimes.com/svc/mostpopular/v2/viewed/7.json?api-key=${appID}`)
+    return response.data
+  }
+ 
+  static async getNewsBySearchQuery(query, filter) {
+    const response = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&fq=${filter}&api-key=${appID}`)
+    console.log(response);
+    return response.data
+  }
+}
+
+
