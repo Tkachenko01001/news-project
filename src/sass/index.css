@@ -43,7 +43,7 @@ img {
 }
 
 body {
-  font-family: "Manrope", sans-serif;
+  font-family: 'Manrope', sans-serif;
   font-size: 16px;
   line-height: 22px;
   color: #111321;
@@ -78,7 +78,7 @@ body {
   padding: 0;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -114,7 +114,7 @@ body {
   transition: border-bottom 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header__logo {
-  font-family: "Manrope";
+  font-family: 'Manrope';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
@@ -220,7 +220,7 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  font-family: "Manrope";
+  font-family: 'Manrope';
   font-style: normal;
   color: inherit;
   font-weight: 500;
@@ -245,7 +245,8 @@ body {
     line-height: 1.39;
   }
 }
-.nav-menu__link:hover, .nav-menu__link:focus {
+.nav-menu__link:hover,
+.nav-menu__link:focus {
   color: #4440f6;
 }
 @media screen and (max-width: 767px) {
@@ -256,7 +257,7 @@ body {
 }
 @media screen and (min-width: 768px) {
   .nav-menu__link--active::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: -5px;
     left: 50%;
@@ -376,7 +377,7 @@ body {
   border: none;
   cursor: auto;
   border-color: #111321;
-  font-family: "Poppins";
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -476,7 +477,7 @@ body {
 
 .weather__temperature {
   border-right: 1px solid #ffffff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 55px;
   line-height: 1.16;
   padding-right: 4px;
@@ -503,7 +504,7 @@ body {
 .weather__description {
   font-size: 24px;
   line-height: 1.17;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 @media screen and (min-width: 768px) {
   .weather__description {
@@ -519,7 +520,7 @@ body {
   height: 34px;
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   line-height: 1.14;
 }
@@ -560,7 +561,7 @@ body {
 
 .weather__date {
   text-align: center;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 28px;
   line-height: 1.18;
 }
@@ -621,7 +622,7 @@ body {
 .card .card__img {
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -686,14 +687,14 @@ body {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   width: 100%;
-  margin: 0 0 20px 0;
-  height: 57px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.37;
+  height: 99px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.37;
+  letter-spacing: -0.01em;
+  margin: 0 0 20px 0;
 }
 @media (min-width: 768px) {
   .card .card__subscribe {
@@ -816,14 +817,27 @@ body {
   position: absolute;
   cursor: pointer;
   fill: #4b48db;
+  -webkit-animation-name: beat;
   animation-name: beat;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
 .card__heart {
   position: absolute;
   cursor: pointer;
+  -webkit-animation-name: unbeat;
   animation-name: unbeat;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
+}
+
+@-webkit-keyframes unbeat {
+  0% {
+    transform: translate(-7%) scale(1.13);
+  }
+  50% {
+    transform: translate(11%) scale(0.8);
+  }
 }
 
 @keyframes unbeat {
@@ -832,6 +846,14 @@ body {
   }
   50% {
     transform: translate(11%) scale(0.8);
+  }
+}
+@-webkit-keyframes beat {
+  0% {
+    transform: translate(11%) scale(0.8);
+  }
+  50% {
+    transform: translate(-7%) scale(1.13);
   }
 }
 @keyframes beat {
@@ -888,7 +910,7 @@ body {
   left: 22px;
 }
 
-input[type=checkbox] {
+input[type='checkbox'] {
   display: none;
 }
 
@@ -930,7 +952,7 @@ input[type=checkbox] {
     gap: 10px;
     width: 43px;
     height: 24px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -952,43 +974,170 @@ input[type=checkbox] {
     justify-content: flex-end;
   }
 }
-.data-container {
-  width: 1280px;
-  height: 119px;
-}
-
-.current_date {
+.filter-wrapper--date .date {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+}
+
+body .date-label {
+  color: #4440f6;
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  body .date-label {
+    display: block;
+    color: #111321;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.375;
+  }
+  body .date-label.dark-theme {
+    color: #f4f4f4;
+  }
+}
+
+.date-input {
+  color: #4440f6;
+  display: flex;
   position: relative;
-  box-sizing: border-box;
-  top: 28px;
-  left: 1091px;
-  right: 52px;
-  width: 137px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: flex-end;
+  width: 152px;
   height: 31px;
-  padding-top: 5px;
-  padding-right: 14px;
-  padding-bottom: 5px;
-  padding-left: 13.67px;
+  left: 0px;
+  background-color: #f4f4f4;
   border: 1px solid #111321;
+  outline: none;
+  border-radius: 20px;
+  padding-left: 46px;
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  .date-picker {
+    font-size: 14px;
+    width: 168px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .date-picker {
+    width: 190px;
+  }
+}
+
+.date-picker .flatpickr-input.active,
+.date-picker .flatpickr-input:hover {
+  outline: none;
+  border: 1px solid #4440f6;
+  color: #ffffff;
+  background-color: #4440f6;
+}
+
+.date-label {
+  margin-right: 37px;
+  color: #111321;
+  font-size: 24px;
+}
+
+:-moz-placeholder-shown {
+  font-size: 12px;
+}
+
+:-ms-input-placeholder {
+  font-size: 12px;
+}
+
+:placeholder-shown {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  :-moz-placeholder-shown {
+    font-size: 14px;
+  }
+  :-ms-input-placeholder {
+    font-size: 14px;
+  }
+  :placeholder-shown {
+    font-size: 14px;
+  }
+}
+
+.date-svg-calendar {
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 12px;
+  fill: currentColor;
+}
+
+.date-down {
+  fill: currentColor;
+  margin-right: 10px;
+  margin-top: 6px;
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
+}
+
+.date-up {
+  display: none;
+  fill: #f8f8f8;
+  margin-right: 10px;
+  margin-top: 6px;
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
+}
+
+.calendar {
+  position: relative;
+}
+
+.flatpickr-calendar.animate.open {
+  background: #f8f8f8;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
 
-.date_text {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0.02em;
-  color: #111321;
-  opacity: 0.4;
+body .flatpickr-months .flatpickr-next-month {
+  fill: #4440f6;
+  stroke-width: 1px;
 }
 
-.icon-calendar {
-  display: flex;
-  align-items: center;
-  fill: #4440f7;
-}/*# sourceMappingURL=index.css.map */
+body .flatpickr-months .flatpickr-prev-month {
+  fill: #4440f6;
+}
+
+.flapickr-input.active::-moz-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.flapickr-input.active:-ms-input-placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.flapickr-input.active::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.date-input:hover ~ .date-down,
+.date-input:hover ~ .date-svg-calendar {
+  fill: white;
+}
+
+.flatpickr-calendar .flatpickr-day.selected {
+  background: #4440f6;
+}
+
+.flatpickr-calendar {
+  max-width: 308px;
+} /*# sourceMappingURL=index.css.map */
