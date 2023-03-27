@@ -1,5 +1,6 @@
 .header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border-bottom 300ms $animation-function;
   &__logo {
     font-family: 'Manrope';
     font-style: normal;
@@ -36,7 +37,10 @@
   }
 }
 .menu-container {
-  @media screen and (max-width: $tablet) {
+  @media screen and (max-width: calc($tablet - 1px)) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     transition: 0.2s;
     position: absolute;
     top: 100%;
@@ -44,9 +48,12 @@
     width: $mobile;
     height: calc(100vh - 80px);
     z-index: 999;
-    display: none;
+    // display: none;
+    overflow: hidden;
     background-color: $light-color;
     padding-bottom: 100px;
+    transform: translateY(-120%);
+    transition: transform 400ms $animation-function;
   }
   @media screen and (min-width: $tablet) {
     position: relative;
@@ -58,10 +65,19 @@
   }
 }
 
+@media screen and (max-width: $tablet) {
+  .menu-container--dark {
+    background-color: $bg-dark-color;
+    transition: .2s;
+  }
+}
+
 .menu-container--open {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  transform: translateY(0%);
+  transition: .2s;
 }
 .nav-menu {
   padding-top: 44px;
@@ -89,7 +105,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 1.37;
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: calc($tablet - 1px)) {
       padding-top: 6px;
       padding-bottom: 6px;
       padding-left: 16px;
@@ -107,7 +123,7 @@
     color: $accent-color;
   }
   &__link--active {
-    @media screen and (max-width: $tablet) {
+    @media screen and (max-width: calc($tablet - 1px)) {
       background-color: $accent-color;
       color: $light-color;
     }
@@ -136,7 +152,6 @@
     display: none;
   }
 }
-
 .menu__button {
   height: 34px;
   width: 34px;
