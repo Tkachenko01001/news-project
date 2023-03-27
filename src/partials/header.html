@@ -5,12 +5,16 @@
             <div class="search-bar">
                 <form>
                     <div class="icon-container">
-                        <svg width="20px" height="19px" class="search-icon">
+                        <svg width="20px" height="19px" class="search-icon-mob">
                             <use href="./images/symbol-defs.svg#icon-search"></use>
                         </svg>
+                        <button type="submit" class="search-button">
+                            <svg width="20px" height="19px" class="search-icon">
+                                <use href="./images/symbol-defs.svg#icon-search"></use>
+                            </svg>
+                        </button type="submit">
                     </div>
-
-                    <input class="search-input" id="search" type="search" placeholder="Search">
+                    <input class="bar-input" id="search" type="search" placeholder="Search">
                 </form>
             </div>
             <button type="button" class="menu__button" aria-expanded="false" aria-controls="mobile-menu">
@@ -39,11 +43,11 @@
                 </ul>
                 <div class="input-box">
                     <form>
-                        <div class="icon-container">
+                        <button type="submit" class="search-button">
                             <svg width="20px" height="19px" class="search-icon">
                                 <use href="./images/symbol-defs.svg#icon-search"></use>
                             </svg>
-                        </div>
+                        </button type="submit">
 
                         <input class="search-input" name="night-input" id="search" type="search" placeholder="Search">
                     </form>
