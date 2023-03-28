@@ -39,11 +39,25 @@ align-items: flex-start;
 display: none;
 }
 #modal {
+    overflow: auto;
     z-index: 1;
     width: 100%;
-    max-height: 80%;
-    background-color: #0006;
+    height: 100%;
+    position: fixed;
     display: none;
+    left: 0;
+    top: 0;
+    padding-left: 15px;
+    padding-top: 145px;
+
+    @media screen and (min-width: 768px) {
+        padding-left: 435px;
+        padding-top: 170px;
+    }
+    @media screen and (min-width: 1280px) {
+        padding-left: 760px;
+        padding-top: 175px;
+    }
 }
 #modalContent {
     z-index: 1;
