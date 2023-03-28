@@ -1,7 +1,6 @@
 import fetchCategories from './fetchCategories.js';
 
 const refs = {
-  categoriesList: document.getElementById('categoriesList'),
   buttonContainer: document.getElementById('buttonContainer'),
   moreButton: document.getElementById('moreButton'),
   modal: document.getElementById('modal'),
@@ -67,18 +66,18 @@ function hideOverflowButtons() {
   const buttons = container.querySelectorAll('.button-ctg');
   let totalWidth = 0;
 
-  buttons-ctg.forEach((button) => {
-    button-ctg.classList.remove('hidden');
-    totalWidth += button-ctg.offsetWidth;
+  buttons.forEach((button) => {
+    button.classList.remove('hidden');
+    totalWidth += button.offsetWidth;
 
     if (totalWidth > containerWidth) {
       button-ctg.classList.add('hidden');
     }
   });
 
-  visibleButtons = buttons-stg.length - document.querySelectorAll('.button-ctg.hidden').length;
+  visibleButtons = buttons.length - document.querySelectorAll('.button-ctg.hidden').length;
 
-  if (visibleButtons === buttons-stg.length) {
+  if (visibleButtons === buttons.length) {
     refs.moreButton.classList.add('hidden');
   } else {
     refs.moreButton.classList.remove('hidden');
@@ -101,7 +100,7 @@ function handleMoreButtonClick(results) {
 }
 
 function handleResize() {
-  const buttons = refs.buttonContainer.querySelectorAll('.button');
+  const buttons = refs.buttonContainer.querySelectorAll('.button-ctg');
   buttons.forEach((button) => button.classList.remove('hidden'));
 
   if (window.innerWidth >= 1280) {
