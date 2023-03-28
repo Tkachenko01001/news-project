@@ -1,6 +1,6 @@
-const galleryNews = document.querySelector('.galleryNews');
-
 const LOCALSTORAGE_KEY = 'favorite';
+const body = document.querySelector('body');
+body.addEventListener('click', addToFavorite);
 
 export default function addToFavorite(e) {
   if (e.target.nodeName !== 'path') {
@@ -58,5 +58,3 @@ export default function addToFavorite(e) {
 
   return favoriteNews;
 }
-
-galleryNews.addEventListener('click', addToFavorite);
