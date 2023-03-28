@@ -1,11 +1,11 @@
+import './js/readPage';
 // import axios from 'axios';
 // import './js/newsCard';
 import './js/theme-switcher';
 import './weather-card-markup';
 import './js/current-date';
 import './js/add-to-read';
-import './js/add-to-favorite';
-
+import './js/add-to-favorite'
 import { NYTNewsAPI } from './js/fetchNews';
 
 const galleryNews = document.querySelector('.galleryNews');
@@ -59,7 +59,6 @@ async function renderCard() {
 }
 
 renderCard();
-
 
 //   galleryNews.addEventListener('click', (e) => {
 //     if (e.target.closest('.card__heart')) {
