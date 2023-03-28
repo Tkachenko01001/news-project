@@ -689,7 +689,7 @@ body {
   .galleryNews {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5em 1.97em;
+    gap: 30px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
@@ -697,7 +697,7 @@ body {
 @media screen and (min-width: 1280px) {
   .galleryNews {
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px 50px;
+    gap: 40px 32px;
   }
 }
 
@@ -707,6 +707,7 @@ body {
 @media screen and (min-width: 768px) {
   .weather-info {
     grid-area: 1/2;
+    margin-bottom: 0;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -967,7 +968,7 @@ body {
   position: absolute;
   right: 31px;
   top: 16px;
-  color: #00B912;
+  color: #00b912;
 }
 
 .night--theme {
