@@ -4,7 +4,7 @@ const refs = {
   buttonContainer: document.getElementById('buttonContainer'),
   moreButton: document.getElementById('moreButton'),
   modal: document.getElementById('modal'),
-  modalContent: document.getElementById('modalContent')
+  modalContent: document.getElementById('modalContent'),
 };
 
 let visibleButtons;
@@ -13,9 +13,9 @@ async function init() {
   const categories = await fetchCategories();
   const allCategories = categories.results;
 
-  if (window.innerWidth >= 1280) {
+  if (window.innerWidth > 1280) {
     visibleButtons = 6;
-  } else if (window.innerWidth >= 768) {
+  } else if (window.innerWidth > 768) {
     visibleButtons = 4;
   } else {
     visibleButtons = 0;
@@ -35,9 +35,7 @@ async function init() {
     handleMoreButtonClick(remainingCategories);
   };
 
-  function onCloseMore() {
-    refs.modal.style.display = "none";
-  }
+  
 
   function onBackdropClick(e) {
     if (e.currentTarget === e.target) {
@@ -58,6 +56,7 @@ function renderBtn(results) {
     .join('');
 
   refs.buttonContainer.insertAdjacentHTML('afterbegin', markup);
+  hideOverflowButtons()
 }
 
 function hideOverflowButtons() {
@@ -67,20 +66,34 @@ function hideOverflowButtons() {
   let totalWidth = 0;
 
   buttons.forEach((button) => {
-    button.classList.remove('hidden');
     totalWidth += button.offsetWidth;
 
     if (totalWidth > containerWidth) {
-      button-ctg.classList.add('hidden');
+      button.classList.add('hidden');
+    } else {
+      button.classList.remove('hidden');
     }
   });
 
-  visibleButtons = buttons.length - document.querySelectorAll('.button-ctg.hidden').length;
-
-  if (visibleButtons === buttons.length) {
-    refs.moreButton.classList.add('hidden');
+  if (window.innerWidth >= 1280) {
+    const allButtons = document.querySelectorAll('.button-rend');
+    allButtons.forEach((button) => {
+      button.style.display = 'block';
+    });
+  } else if (window.innerWidth >= 768) {
+    const allButtons = document.querySelectorAll('.button-rend');
+    allButtons.forEach((button, index) => {
+      if (index >= visibleButtons) {
+        button.style.display = 'none';
+      } else {
+        button.style.display = 'block';
+      }
+    });
   } else {
-    refs.moreButton.classList.remove('hidden');
+    const allButtons = document.querySelectorAll('.button-rend');
+    allButtons.forEach((button) => {
+      button.style.display = 'none';
+    });
   }
 }
 
@@ -96,7 +109,7 @@ function handleMoreButtonClick(results) {
     .join('');
 
   refs.modalContent.innerHTML = markup;
-  refs.modal.style.display = "block";
+  hideOverflowButtons()
 }
 
 function handleResize() {
@@ -114,6 +127,11 @@ function handleResize() {
   hideOverflowButtons();
 }
 
+handleResize();
 init();
 
+const onClickCateg = (e) => {
+  refs.modal.classList.toggle('hidden');
+}
 
+refs.moreButton.addEventListener('click', onClickCateg);
