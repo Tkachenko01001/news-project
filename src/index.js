@@ -19,8 +19,8 @@ import { NYTNewsAPI } from './js/fetchNews';
 //     data.results
 //       .map(e => {
 //         const img = [e][0]?.media[0]?.['media-metadata']?.[2]?.url;
-//         const mediaUrl = img
-//           ? img
+//         const mediaUrl = [e][0]?.media[0]?.['media-metadata']?.[2]?.url
+//           ? [e][0]?.media[0]?.['media-metadata']?.[2]?.url
 //           : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 //         const mediaAlt = [e][0]?.media[0]?.caption;
 //         const newsCategory = [e][0].section;
