@@ -531,15 +531,14 @@ body {
   }
 }
 
-.button-ctg.hidden {
-  display: none;
-}
-
 #modal {
   z-index: 1;
   width: 100%;
   max-height: 80%;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hidden {
   display: none;
 }
 
@@ -574,11 +573,22 @@ body {
 
 .container-main {
   margin-top: 28px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+@media (max-width: 768px) {
+  .button-rend {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .button-rend:nth-last-child(-n+2) {
+    display: none;
+  }
+}
 .weather {
   background-color: #4440f6;
   padding: 38px 36px 84px;

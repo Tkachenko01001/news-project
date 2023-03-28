@@ -8,6 +8,8 @@ import './js/current-date';
 import './js/add-to-read';
 import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
+import { format } from 'date-fns';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const galleryNews = document.querySelector('.galleryNews');
 const buttonContainer = document.querySelector('.button-container');
@@ -15,10 +17,9 @@ const buttonsInModal = document.querySelector('#modalContent');
 
 // Відображення популярних новин:
 async function renderCard() {
-  const data = await NYTNewsAPI.getPopularNews();
-
   try {
-    data.results
+    const data = await NYTNewsAPI.getPopularNews();
+    const finalResult = data.results
       .map(e => {
         const img = [e][0]?.media[0]?.['media-metadata']?.[2]?.url;
         const mediaUrl = img
@@ -28,12 +29,11 @@ async function renderCard() {
         const newsCategory = [e][0].section;
         const title = [e][0].title;
         const subscribe = [e][0].abstract;
-        const date = [e][0].published_date;
+        const date = format(Date.parse([e][0].published_date), 'yyyy-MM-dd');
         const url = [e][0].url;
         const ID = [e][0].id;
         const cardFavText = 'Add to favorites';
-        const markup = `
-          <div class="card" id="${ID}">
+      return  ` <div class="card" id="${ID}">
             <div class="card__img-wrapper">
               <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}">
               <span class="card__category">${newsCategory}</span>
@@ -53,12 +53,12 @@ async function renderCard() {
               <span class="card__read-more">Read more</span>
             </a>
           </div>
-        `;
-        galleryNews.insertAdjacentHTML('beforeend', markup);
+        `
       })
-      .join('');
+     .join('');
+      galleryNews.insertAdjacentHTML('beforeend', finalResult)
   } catch (error) {
-    console.log(error);
+    Notify.warning(error);
   }
 }
 
@@ -80,12 +80,13 @@ function handleSubmit(e) {
 }
 
 async function renderSearchQueryCard(query, filter) {
-  const data = await NYTNewsAPI.getNewsBySearchQuery(query, filter);
-  if (!data.response.docs) {
-    return;
-  } else {
-    try {
-      data.response.docs
+  try {
+    const data = await NYTNewsAPI.getNewsBySearchQuery(query, filter);
+    if (!data.response.docs) {
+      Notify.warning("error");
+      return;
+    } else {
+      const finalResult = data.response.docs
         .map(e => {
           const img = [e][0]?.multimedia?.[0]?.url;
           const mediaUrl = img
@@ -95,11 +96,11 @@ async function renderSearchQueryCard(query, filter) {
           const newsCategory = [e][0].section_name;
           const title = [e][0].headline?.main;
           const subscribe = [e][0].abstract;
-          const date = Date.parse([e][0].pub_date);
+          const date = format(Date.parse([e][0].pub_date), 'yyyy-MM-dd');
           const url = [e][0].web_url;
           const ID = [e][0].uri;
           const cardFavText = 'Add to favorites';
-          const markup = `
+          return `
           <div class="card" id="${ID}">
             <div class="card__img-wrapper">
               <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}">
@@ -121,15 +122,15 @@ async function renderSearchQueryCard(query, filter) {
             </a>
           </div>
         `;
-          galleryNews.insertAdjacentHTML('beforeend', markup);
         })
         .join('');
-      ifEmptyQuery();
-    } catch (error) {
-      console.log(error);
+      galleryNews.insertAdjacentHTML('beforeend', finalResult);
+    }
+  } catch (error) {
+      Notify.warning(error);
     }
   }
-}
+
 
 // Пошук за категорією:
 
@@ -139,37 +140,40 @@ buttonContainer.addEventListener('click', e => {
     renderSearchByCategoryCard(e.target.textContent.toLowerCase());
   }
 });
-
+const modal = document.getElementById('modal');
 buttonsInModal.addEventListener('click', e => {
   if (e.target.closest('.more-item-categories')) {
-    // закрити модальне вікно
+    modal.style.display = 'none';
     galleryNews.innerHTML = '';
     renderSearchByCategoryCard(encodeURI(e.target.textContent.toLowerCase()));
-    console.log(encodeURI(e.target.textContent.toLowerCase()));
   }
 });
 
 async function renderSearchByCategoryCard(categ) {
-  const data = await NYTNewsAPI.getNewsByCategories(categ);
-  if (!data.results) {
-    return;
-  } else {
-    try {
-      data.results
-        .map(e => {
-          const img = [e][0]?.multimedia?.[2]?.url;
-          const mediaUrl = img
-            ? img
-            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
-          const mediaAlt = [e][0]?.multimedia?.[2]?.caption;
-          const newsCategory = [e][0]?.section;
-          const title = [e][0]?.title;
-          const subscribe = [e][0]?.abstract;
-          const date = Date.parse([e][0]?.published_date);
-          const url = [e][0].url;
-          const ID = [e][0].uri;
-          const cardFavText = 'Add to favorites';
-          const markup = `
+      const data = await NYTNewsAPI.getNewsByCategories(categ);
+     if (!data.results) {
+        Notify.warning("error");
+       return
+     } else {
+       try {
+       const finalResult = data.results
+         .map(e => {
+           const img = [e][0]?.multimedia?.[2]?.url;
+           const mediaUrl = img
+             ? img
+             : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
+           const mediaAlt = [e][0]?.multimedia?.[2]?.caption;
+           const newsCategory = [e][0]?.section;
+           const title = [e][0]?.title;
+           const subscribe = [e][0]?.abstract;
+           const date = format(
+             Date.parse([e][0]?.published_date),
+             'yyyy-MM-dd'
+           );
+           const url = [e][0].url;
+           const ID = [e][0].uri;
+           const cardFavText = 'Add to favorites';
+          return `
           <div class="card" id="${ID}">
             <div class="card__img-wrapper">
               <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}">
@@ -190,15 +194,14 @@ async function renderSearchByCategoryCard(categ) {
               <span class="card__read-more">Read more</span>
             </a>
           </div>
-        `;
-          galleryNews.insertAdjacentHTML('beforeend', markup);
-        })
-        .join('');
-      ifEmptyQuery();
-    } catch (error) {
-      console.log(error);
-    }
-  }
+        `
+         })
+           .join('');
+         galleryNews.insertAdjacentHTML('beforeend', finalResult);
+       } catch (error) {
+         Notify.warning(error);
+       }
+     }
 }
 //renderSearchByCategoryCard(encodeURI('crosswords & games'));
 
