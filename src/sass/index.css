@@ -77,7 +77,8 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -433,19 +434,6 @@ body {
   }
 }
 
-.search-icon-mob {
-  position: absolute;
-  left: 12px;
-  top: 6px;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .search-icon-mob {
-    display: none;
-    cursor: auto;
-  }
-}
-
 .search-button {
   display: none;
   z-index: 2;
@@ -461,6 +449,41 @@ body {
   .search-button {
     display: block;
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .icon-container {
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    position: absolute;
+    left: 12px;
+    border: none;
+    background: transparent;
+  }
+}
+@media screen and (min-width: 768px) {
+  .icon-container {
+    display: none;
+  }
+}
+
+.search-bar__form {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon-mob {
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .search-icon-mob {
+    display: none;
+    cursor: auto;
   }
 }
 
@@ -738,7 +761,8 @@ body {
 .card .card__img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -1177,10 +1201,17 @@ body .date-label {
   font-size: 24px;
 }
 
+:-moz-placeholder-shown {
+  font-size: 12px;
+}
+
 :placeholder-shown {
   font-size: 12px;
 }
 @media screen and (min-width: 768px) {
+  :-moz-placeholder-shown {
+    font-size: 14px;
+  }
   :placeholder-shown {
     font-size: 14px;
   }
@@ -1231,6 +1262,11 @@ body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
 }
 
+.date-input:hover ::-moz-placeholder, .date-input:focus-within ::-moz-placeholder {
+  color: white;
+  opacity: 1;
+}
+
 .date-input:hover ::placeholder,
 .date-input:focus-within ::placeholder {
   color: white;
@@ -1239,6 +1275,11 @@ body .flatpickr-months .flatpickr-prev-month {
 
 .date-input:hover .date-picker {
   background-color: #4440f6;
+}
+
+.date-picker .flatpickr-input.active ::-moz-placeholder, .date-picker:hover ::-moz-placeholder {
+  color: white;
+  opacity: 1;
 }
 
 .date-picker .flatpickr-input.active ::placeholder,

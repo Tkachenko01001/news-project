@@ -1,5 +1,5 @@
 .search-bar {
-  transition: .2s;
+  transition: 0.2s;
   @media screen and (max-width: calc($tablet - 1px)) {
     position: absolute;
     top: 26px;
@@ -69,11 +69,10 @@
 
 @media screen and (min-width: $tablet) {
   .search-input--night {
-    transition: .2s;
+    transition: 0.2s;
     border: 1px solid $light-color;
   }
 }
-
 
 .open {
   display: block;
@@ -97,32 +96,17 @@
   position: absolute;
   left: 0px;
   top: 0px;
-  
 
   @media screen and (min-width: $tablet) {
     cursor: pointer;
   }
 }
-
-.search-icon-mob {
-  position: absolute;
-  left: 12px;
-  top: 6px;
-  cursor: pointer;
-
-
-  @media screen and (min-width: $tablet) {
-    display: none;
-    cursor: auto;
-  }
-}
-
 .search-button {
   display: none;
   z-index: 2;
-  width:20px;
-  height:19px;
-  
+  width: 20px;
+  height: 19px;
+
   position: absolute;
   left: 12px;
   top: 6px;
@@ -130,7 +114,37 @@
   background: transparent;
 
   @media screen and (min-width: $tablet) {
-      display: block;
-      cursor: pointer;
-    }
+    display: block;
+    cursor: pointer;
   }
+}
+
+.icon-container {
+  @media screen and (max-width: calc($tablet - 1px)) {
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    position: absolute;
+    left: 12px;
+    border: none;
+    background: transparent;
+  }
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+.search-bar__form {
+  display: flex;
+  align-items: center;
+}
+.search-icon-mob {
+  cursor: pointer;
+
+  @media screen and (min-width: $tablet) {
+    display: none;
+    cursor: auto;
+  }
+}
