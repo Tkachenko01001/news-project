@@ -12,7 +12,7 @@ let visibleButtons;
 async function init() {
   const categories = await fetchCategories();
   const allCategories = categories.results;
-
+  handleMoreButtonClick(allCategories)
   if (window.innerWidth >= 1280) {
     visibleButtons = 6;
   } else if (window.innerWidth >= 768) {
@@ -29,7 +29,7 @@ async function init() {
 
   refs.moreButton.addEventListener('click', onOpenMore);
   refs.modal.addEventListener('click', onBackdropClick);
-  
+
   function onOpenMore() {
     const remainingCategories = allCategories.slice(visibleButtons);
     handleMoreButtonClick(remainingCategories);
@@ -87,6 +87,7 @@ function hideOverflowButtons() {
 function handleMoreButtonClick(results) {
   const markup = results
     .map(({ display_name }) => {
+      return `<option value="asd">${display_name}</option>`
       return `
       <div class="more-categories">
       <button type="button" class="more-item-categories">${display_name}</button>
@@ -95,8 +96,9 @@ function handleMoreButtonClick(results) {
     })
     .join('');
 
-  refs.modalContent.innerHTML = markup;
-  refs.modal.style.display = "block";
+  // refs.modal.innerHTML = markup;
+  refs.moreButton.insertAdjacentHTML('afterbegin', markup);
+  // refs.modal.style.display = "block";
 }
 
 function handleResize() {
