@@ -10,9 +10,9 @@
 
 .accordion-header {
   background-color: #f1f1f1;
-  padding: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  padding: 10px;
 }
 
 .accordion-header:hover {
@@ -20,7 +20,6 @@
 }
 
 .accordion-content {
-  padding: 10px;
   background-color: #fff;
   transition: max-height 0.3s ease-in-out;
   max-height: 0;
