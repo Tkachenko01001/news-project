@@ -1,17 +1,17 @@
-const galleryNews = document.querySelector('.galleryNews');
-
-const LOCALSTORAGE_KEY = 'read';
+const LOCALSTORAGE_KEY_READ = 'read';
+const body = document.querySelector('body');
+body.addEventListener('click', addToRead);
 
 export default function addToRead(e) {
   if (!e.target.closest('.card__read-more')) {
     return;
   }
 
-  if (!localStorage.getItem(LOCALSTORAGE_KEY)) {
-    localStorage.setItem(LOCALSTORAGE_KEY, '[]');
+  if (!localStorage.getItem(LOCALSTORAGE_KEY_READ)) {
+    localStorage.setItem(LOCALSTORAGE_KEY_READ, '[]');
   }
 
-  let readNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+  let readNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_READ));
 
   const readCard = e.target.parentNode.parentNode;
   console.log(readCard);
@@ -33,10 +33,10 @@ export default function addToRead(e) {
 
   if (!readNews.find(card => card.id === readedCard.id)) {
     readNews.push(readedCard);
-    localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(readNews));
+    localStorage.setItem(LOCALSTORAGE_KEY_READ, JSON.stringify(readNews));
   }
 
   return readNews;
 }
 
-galleryNews.addEventListener('click', addToRead);
+

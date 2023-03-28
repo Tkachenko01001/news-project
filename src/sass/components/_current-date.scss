@@ -18,12 +18,10 @@
 }
 
 body .date-label {
-  color: #4440f6;
   display: none;
 
   @media screen and (min-width: 1280px) {
     display: block;
-    color: #111321;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.375;
@@ -35,27 +33,32 @@ body .date-label {
 }
 
 .date-input {
-  color: #4440f6;
+  fill: #4440f6;
   display: flex;
   position: relative;
   overflow: hidden;
   background-color: transparent;
 }
+.date-input:hover {
+  fill: #f4f4f4; 
+}
 
 .date-picker {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; 
 
   width: 152px;
   height: 31px;
   left: 0px;
-  background-color: #f4f4f4;
-
+  background-color: inherit;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
   padding-left: 46px;
   font-size: 12px;
+  &:hover {
+    background-color: #4440f6;
+  }
   @media screen and (min-width: 768px) {
     font-size: 14px;
     width: 168px;
@@ -71,10 +74,10 @@ body .date-label {
   border: 1px solid #4440f6;
   color: #ffffff;
   background-color: #4440f6;
+  fill: white;
 }
 .date-label {
   margin-right: 37px;
-  color: #111321;
   font-size: 24px;
 }
 :placeholder-shown {
@@ -88,11 +91,9 @@ body .date-label {
   position: absolute;
   margin-top: 6px;
   margin-left: 12px;
-  fill: currentColor;
 }
 
 .date-down {
-  fill: currentColor;
   margin-right: 10px;
   margin-top: 6px;
   position: absolute;
@@ -100,6 +101,7 @@ body .date-label {
   right: 1px;
   transform: translateY(-50%);
 }
+
 .date-up {
   display: none;
   fill: #f8f8f8;
@@ -126,14 +128,26 @@ body .flatpickr-months .flatpickr-next-month {
 body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
 }
+.date-input:hover ::placeholder,
+.date-input:focus-within ::placeholder {
+  color: white;
+  opacity: 1;
+} 
+.date-input:hover .date-picker {
+  background-color: #4440f6;
+}
 
-.flapickr-input.active::placeholder {
+.date-picker .flatpickr-input.active ::placeholder,
+.date-picker:hover ::placeholder {
   color: white;
   opacity: 1;
 }
 
-.date-input:hover ~ .date-down,
-.date-input:hover ~ .date-svg-calendar {
+
+.flatpickr-input.date-picker.active:hover ~.date-down,
+.flatpickr-input.date-picker.active:hover ~.date-svg-calendar,
+.flatpickr-input.date-picker.active:focus-within ~.date-down,
+.flatpickr-input.date-picker.active:focus-within ~.date-svg-calendar {
   fill: white;
 }
 .flatpickr-calendar .flatpickr-day.selected {

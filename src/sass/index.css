@@ -77,8 +77,7 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -620,8 +619,7 @@ body {
 }
 .card .card__img {
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -816,27 +814,14 @@ body {
   position: absolute;
   cursor: pointer;
   fill: #4b48db;
-  -webkit-animation-name: beat;
-          animation-name: beat;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
+  animation-name: beat;
+  animation-duration: 1s;
 }
 .card__heart {
   position: absolute;
   cursor: pointer;
-  -webkit-animation-name: unbeat;
-          animation-name: unbeat;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-}
-
-@-webkit-keyframes unbeat {
-  0% {
-    transform: translate(-7%) scale(1.13);
-  }
-  50% {
-    transform: translate(11%) scale(0.8);
-  }
+  animation-name: unbeat;
+  animation-duration: 1s;
 }
 
 @keyframes unbeat {
@@ -845,14 +830,6 @@ body {
   }
   50% {
     transform: translate(11%) scale(0.8);
-  }
-}
-@-webkit-keyframes beat {
-  0% {
-    transform: translate(11%) scale(0.8);
-  }
-  50% {
-    transform: translate(-7%) scale(1.13);
   }
 }
 @keyframes beat {
@@ -1009,13 +986,11 @@ input[type=checkbox] {
 }
 
 body .date-label {
-  color: #4440f6;
   display: none;
 }
 @media screen and (min-width: 1280px) {
   body .date-label {
     display: block;
-    color: #111321;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.375;
@@ -1026,11 +1001,15 @@ body .date-label {
 }
 
 .date-input {
-  color: #4440f6;
+  fill: #4440f6;
   display: flex;
   position: relative;
   overflow: hidden;
   background-color: transparent;
+}
+
+.date-input:hover {
+  fill: #f4f4f4;
 }
 
 .date-picker {
@@ -1039,12 +1018,15 @@ body .date-label {
   width: 152px;
   height: 31px;
   left: 0px;
-  background-color: #f4f4f4;
+  background-color: inherit;
   border: 1px solid #111321;
   outline: none;
   border-radius: 20px;
   padding-left: 46px;
   font-size: 12px;
+}
+.date-picker:hover {
+  background-color: #4440f6;
 }
 @media screen and (min-width: 768px) {
   .date-picker {
@@ -1064,32 +1046,18 @@ body .date-label {
   border: 1px solid #4440f6;
   color: #ffffff;
   background-color: #4440f6;
+  fill: white;
 }
 
 .date-label {
   margin-right: 37px;
-  color: #111321;
   font-size: 24px;
-}
-
-:-moz-placeholder-shown {
-  font-size: 12px;
-}
-
-:-ms-input-placeholder {
-  font-size: 12px;
 }
 
 :placeholder-shown {
   font-size: 12px;
 }
 @media screen and (min-width: 768px) {
-  :-moz-placeholder-shown {
-    font-size: 14px;
-  }
-  :-ms-input-placeholder {
-    font-size: 14px;
-  }
   :placeholder-shown {
     font-size: 14px;
   }
@@ -1099,11 +1067,9 @@ body .date-label {
   position: absolute;
   margin-top: 6px;
   margin-left: 12px;
-  fill: currentColor;
 }
 
 .date-down {
-  fill: currentColor;
   margin-right: 10px;
   margin-top: 6px;
   position: absolute;
@@ -1142,23 +1108,31 @@ body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
 }
 
-.flapickr-input.active::-moz-placeholder {
+.date-input:hover ::placeholder,
+.date-input:focus-within ::placeholder {
   color: white;
   opacity: 1;
 }
 
-.flapickr-input.active:-ms-input-placeholder {
+.date-input:hover .date-picker {
+  background-color: #4440f6;
+}
+
+.date-picker .flatpickr-input.active ::-moz-placeholder, .date-picker:hover ::-moz-placeholder {
   color: white;
   opacity: 1;
 }
 
-.flapickr-input.active::placeholder {
+.date-picker .flatpickr-input.active ::placeholder,
+.date-picker:hover ::placeholder {
   color: white;
   opacity: 1;
 }
 
-.date-input:hover ~ .date-down,
-.date-input:hover ~ .date-svg-calendar {
+.flatpickr-input.date-picker.active:hover ~ .date-down,
+.flatpickr-input.date-picker.active:hover ~ .date-svg-calendar,
+.flatpickr-input.date-picker.active:focus-within ~ .date-down,
+.flatpickr-input.date-picker.active:focus-within ~ .date-svg-calendar {
   fill: white;
 }
 
@@ -1168,4 +1142,96 @@ body .flatpickr-months .flatpickr-prev-month {
 
 .flatpickr-calendar {
   max-width: 308px;
+}
+
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-top: 1px solid #ccc;
+}
+
+.accordion-header {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  padding: 10px;
+}
+
+.accordion-header:hover {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  background-color: #fff;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion-item.active .accordion-header {
+  background-color: #ddd;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+}
+
+.favorite {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .favorite {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite {
+    padding-top: 60px;
+    padding-bottom: 300px;
+  }
+}
+
+.favorite__container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(323px, auto));
+    grid-auto-rows: 675px;
+    grid-gap: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__container {
+    grid-template-columns: repeat(auto-fit, minmax(362px, auto));
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
+  }
+}
+
+.favorite__item {
+  margin: 0 auto;
+  width: 288px;
+  height: 630px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__item {
+    width: 353px;
+    height: 675px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item {
+    width: 395px;
+  }
 }/*# sourceMappingURL=index.css.map */

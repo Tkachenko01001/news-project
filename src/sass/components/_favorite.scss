@@ -21,15 +21,15 @@
   @media screen and (min-width: $tablet) {
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(353px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(323px, auto));
     grid-auto-rows: 675px;
     grid-gap: 30px;
   }
 
   @media screen and (min-width: $desktop) {
-    grid-template-columns: repeat(auto-fit, minmax(395px, auto));
-    grid-gap-column: 40px;
-    grid-gap-row: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(362px, auto));
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
   }
 }
 

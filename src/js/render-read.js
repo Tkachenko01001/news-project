@@ -1,8 +1,8 @@
 const galleryRead = document.querySelector('.read__container');
 
-const LOCALSTORAGE_KEY = 'read';
+const LOCALSTORAGE_KEY_READ = 'read';
 
-let readNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY));
+let readNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_READ));
 
 function renderReadList(cards) {
   const markup = cards
@@ -35,7 +35,7 @@ function renderReadList(cards) {
         <h2 class="card__title">${title}</h2>
         <p class="card__subscribe">${subscribe}</p>
         <span class="card__date">${date}</span>
-        <a href="${url}">
+        <a href="${url}" target="_blank">
           <span class="card__read-more">Read more</span>
         </a>
       </div>
@@ -48,4 +48,3 @@ function renderReadList(cards) {
 }
 
 renderReadList(readNews);
-
