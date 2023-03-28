@@ -6,12 +6,12 @@ import './js/categoriesBtn';
 import './weather-card-markup';
 import './js/current-date';
 import './js/add-to-read';
-import './js/add-to-favorite'
+import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
 
 const galleryNews = document.querySelector('.galleryNews');
 const buttonContainer = document.querySelector('.button-container');
-const buttonsInModal = document.querySelector('#modalContent'); ;
+const buttonsInModal = document.querySelector('#modalContent');
 
 // Відображення популярних новин:
 async function renderCard() {
@@ -68,14 +68,13 @@ renderCard();
 const formSearch = document.querySelector('.search-form');
 formSearch.addEventListener('submit', handleSubmit);
 
-function handleSubmit (e) {
+function handleSubmit(e) {
   e.preventDefault();
   galleryNews.innerHTML = '';
   renderSearchQueryCard(formSearch.elements['night-input'].value, '');
-};
+}
 
 async function renderSearchQueryCard(query, filter) {
-
   const data = await NYTNewsAPI.getNewsBySearchQuery(query, filter);
   if (!data.response.docs) {
     return;
@@ -120,8 +119,7 @@ async function renderSearchQueryCard(query, filter) {
           galleryNews.insertAdjacentHTML('beforeend', markup);
         })
         .join('');
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error);
     }
   }
@@ -130,12 +128,12 @@ async function renderSearchQueryCard(query, filter) {
 // Пошук за категорією:
 
 buttonContainer.addEventListener('click', e => {
-    if (e.target.closest('.button-ctg')) {
-      galleryNews.innerHTML = '';
-      renderSearchByCategoryCard(e.target.textContent.toLowerCase());
-    }
+  if (e.target.closest('.button-ctg')) {
+    galleryNews.innerHTML = '';
+    renderSearchByCategoryCard(e.target.textContent.toLowerCase());
+  }
 });
-  
+
 buttonsInModal.addEventListener('click', e => {
   if (e.target.closest('.more-item-categories')) {
     // закрити модальне вікно
@@ -197,19 +195,18 @@ async function renderSearchByCategoryCard(categ) {
 }
 //renderSearchByCategoryCard(encodeURI('crosswords & games'));
 
-  galleryNews.addEventListener('click', (e) => {
-    if (e.target.closest('.card__heart')) {
-        e.target.classList.add('card__heart--fill');
-        e.target.classList.remove('card__heart');
-      e.target.parentElement.parentElement.previousElementSibling.textContent =
-        'Remove from favorite';
-        return
-    };
-    if (e.target.closest('.card__heart--fill')) {
-        e.target.classList.remove('card__heart--fill');
-        e.target.classList.add('card__heart');
-        e.target.parentElement.parentElement.previousElementSibling.textContent =
-          'Add to favorite';
-    }
+galleryNews.addEventListener('click', e => {
+  if (e.target.closest('.card__heart')) {
+    e.target.classList.add('card__heart--fill');
+    e.target.classList.remove('card__heart');
+    e.target.parentElement.parentElement.previousElementSibling.textContent =
+      'Remove from favorite';
+    return;
   }
-);
+  if (e.target.closest('.card__heart--fill')) {
+    e.target.classList.remove('card__heart--fill');
+    e.target.classList.add('card__heart');
+    e.target.parentElement.parentElement.previousElementSibling.textContent =
+      'Add to favorite';
+  }
+});
