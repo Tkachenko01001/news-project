@@ -1,17 +1,19 @@
 .galleryNews {
   margin-bottom: 40px;
   line-height: 1.37;
+  gap: 28px;
 
   @media screen and (min-width: $tablet) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5em 1.97em;
+    grid-gap: 30px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
   @media screen and (min-width: $desktop) {
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px 50px;
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
   }
 }
 
@@ -44,7 +46,7 @@
     height: 675px;
   }
 
-    .card__img {
+  .card__img {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
@@ -84,7 +86,7 @@
     }
   }
 
-    .card__img-wrapper {
+  .card__img-wrapper {
     display: flex;
     height: 395px;
     width: 288px;
@@ -100,11 +102,11 @@
     }
   }
 
-    .card__title--dark {
+  .card__title--dark {
     color: $white-color;
   }
 
-    .card__subscribe {
+  .card__subscribe {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -124,7 +126,7 @@
     }
   }
 
-    .card__read-more {
+  .card__read-more {
     position: absolute;
     left: 218px;
     width: 69px;
@@ -145,7 +147,7 @@
     }
   }
 
-    .card__date {
+  .card__date {
     position: absolute;
     left: 1px;
     width: 79px;
@@ -164,7 +166,7 @@
     }
   }
 
-    .card__favorite {
+  .card__favorite {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -186,7 +188,7 @@
     }
   }
 
-    .card__favText {
+  .card__favText {
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -196,7 +198,7 @@
     color: $dark-color;
   }
 
-    .card__category {
+  .card__category {
     position: absolute;
     display: flex;
     width: 112px;
@@ -276,9 +278,9 @@
   font-size: 14px;
   line-height: 19px;
   position: absolute;
-    
-    right: 31px;
-    top: 16px;
-  
-  color: #00B912;
+
+  right: 31px;
+  top: 16px;
+
+  color: #00b912;
 }

@@ -8,6 +8,7 @@ import './js/add-to-read';
 import './js/add-to-favorite';
 import './js/pagination';
 
+
 import { NYTNewsAPI } from './js/fetchNews';
 
 // const galleryNews = document.querySelector('.galleryNews');
