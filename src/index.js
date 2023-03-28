@@ -8,7 +8,8 @@ import './js/current-date';
 import './js/add-to-read';
 import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
-import { format, parse } from 'date-fns';
+import { format } from 'date-fns';
+
 
 const galleryNews = document.querySelector('.galleryNews');
 const buttonContainer = document.querySelector('.button-container');
@@ -133,13 +134,12 @@ buttonContainer.addEventListener('click', e => {
     renderSearchByCategoryCard(e.target.textContent.toLowerCase());
   }
 });
-
+const modal = document.getElementById('modal');
 buttonsInModal.addEventListener('click', e => {
   if (e.target.closest('.more-item-categories')) {
-    // закрити модальне вікно
+    modal.style.display = 'none';
     galleryNews.innerHTML = '';
     renderSearchByCategoryCard(encodeURI(e.target.textContent.toLowerCase()));
-    console.log(encodeURI(e.target.textContent.toLowerCase()));
   }
 });
 
