@@ -2,6 +2,7 @@ import './js/readPage';
 // import axios from 'axios';
 // import './js/newsCard';
 import './js/theme-switcher';
+import './js/categoriesBtn';
 import './weather-card-markup';
 import './js/current-date';
 import './js/add-to-read';
