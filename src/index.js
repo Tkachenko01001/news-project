@@ -72,7 +72,6 @@ searchBar.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
-  console.log(e.target);
   if (e.target.style.display === 'none') {
     return;
   }
