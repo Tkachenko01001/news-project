@@ -77,8 +77,7 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -660,7 +659,7 @@ body {
   .galleryNews {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5em 1.97em;
+    gap: 30px;
     margin-top: 48px;
     margin-bottom: 48px;
   }
@@ -668,7 +667,7 @@ body {
 @media screen and (min-width: 1280px) {
   .galleryNews {
     grid-template-columns: repeat(3, 1fr);
-    gap: 100px 50px;
+    gap: 40px 32px;
   }
 }
 
@@ -678,6 +677,7 @@ body {
 @media screen and (min-width: 768px) {
   .weather-info {
     grid-area: 1/2;
+    margin-bottom: 0;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -708,8 +708,7 @@ body {
 .card .card__img {
   height: 100%;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -939,7 +938,7 @@ body {
   position: absolute;
   right: 31px;
   top: 16px;
-  color: #00B912;
+  color: #00b912;
 }
 
 .night--theme {
@@ -1148,17 +1147,10 @@ body .date-label {
   font-size: 24px;
 }
 
-:-moz-placeholder-shown {
-  font-size: 12px;
-}
-
 :placeholder-shown {
   font-size: 12px;
 }
 @media screen and (min-width: 768px) {
-  :-moz-placeholder-shown {
-    font-size: 14px;
-  }
   :placeholder-shown {
     font-size: 14px;
   }
@@ -1209,11 +1201,6 @@ body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
 }
 
-.date-input:hover ::-moz-placeholder, .date-input:focus-within ::-moz-placeholder {
-  color: white;
-  opacity: 1;
-}
-
 .date-input:hover ::placeholder,
 .date-input:focus-within ::placeholder {
   color: white;
@@ -1222,11 +1209,6 @@ body .flatpickr-months .flatpickr-prev-month {
 
 .date-input:hover .date-picker {
   background-color: #4440f6;
-}
-
-.date-picker .flatpickr-input.active ::-moz-placeholder, .date-picker:hover ::-moz-placeholder {
-  color: white;
-  opacity: 1;
 }
 
 .date-picker .flatpickr-input.active ::placeholder,
