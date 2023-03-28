@@ -962,45 +962,176 @@ input[type=checkbox] {
     justify-content: flex-end;
   }
 }
-.data-container {
-  width: 1280px;
-  height: 119px;
-}
-
-.current_date {
+.filter-wrapper--date .date {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 24px;
+  margin-right: 16px;
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .filter-wrapper--date .date {
+    margin-right: 16px;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .filter-wrapper--date .date {
+    margin-top: 28px;
+    margin-right: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+body .date-label {
+  display: none;
+}
+@media screen and (min-width: 1280px) {
+  body .date-label {
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.375;
+  }
+  body .date-label.dark-theme {
+    color: #f4f4f4;
+  }
+}
+
+.date-input {
+  fill: #4440f6;
+  display: flex;
   position: relative;
-  box-sizing: border-box;
-  top: 28px;
-  left: 1091px;
-  right: 52px;
-  width: 137px;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.date-input:hover {
+  fill: #f4f4f4;
+}
+
+.date-picker {
+  display: flex;
+  justify-content: flex-end;
+  width: 152px;
   height: 31px;
-  padding-top: 5px;
-  padding-right: 14px;
-  padding-bottom: 5px;
-  padding-left: 13.67px;
+  left: 0px;
+  background-color: inherit;
   border: 1px solid #111321;
+  outline: none;
+  border-radius: 20px;
+  padding-left: 46px;
+  font-size: 12px;
+}
+.date-picker:hover {
+  background-color: #4440f6;
+}
+@media screen and (min-width: 768px) {
+  .date-picker {
+    font-size: 14px;
+    width: 168px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .date-picker {
+    width: 190px;
+  }
+}
+
+/* .date-picker .flatpickr-input.active,
+.date-picker .flatpickr-input:hover {
+  outline: none;
+  border: 1px solid #4440f6;
+  color: #ffffff;
+  background-color: #4440f6;
+  fill: white;
+} */
+.date-label {
+  margin-right: 37px;
+  font-size: 24px;
+}
+
+:placeholder-shown {
+  font-size: 12px;
+}
+@media screen and (min-width: 768px) {
+  :placeholder-shown {
+    font-size: 14px;
+  }
+}
+
+.date-svg-calendar {
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 12px;
+}
+
+.date-down {
+  margin-right: 10px;
+  margin-top: 6px;
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
+}
+
+.date-up {
+  display: none;
+  fill: #f8f8f8;
+  margin-right: 10px;
+  margin-top: 6px;
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
+}
+
+.calendar {
+  position: relative;
+}
+
+.flatpickr-calendar.animate.open {
+  background: #f8f8f8;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
 }
 
-.date_text {
-  font-family: "Manrope";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  letter-spacing: 0.02em;
-  color: #111321;
-  opacity: 0.4;
+body .flatpickr-months .flatpickr-next-month {
+  fill: #4440f6;
+  stroke-width: 1px;
 }
 
-.icon-calendar {
-  display: flex;
-  align-items: center;
-  fill: #4440f7;
+body .flatpickr-months .flatpickr-prev-month {
+  fill: #4440f6;
+}
+
+.date-input:hover ::placeholder,
+.date-input:focus-within ::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.date-input:hover .date-picker {
+  background-color: #4440f6;
+}
+
+/* .date-picker .flatpickr-input.active ::placeholder,
+.date-picker:hover ::placeholder {
+  color: white;
+  opacity: 1;
+} */
+/* .flatpickr-input.date-picker.active:hover ~.date-down,
+.flatpickr-input.date-picker.active:hover ~.date-svg-calendar {
+  fill: white;
+} */
+.flatpickr-calendar .flatpickr-day.selected {
+  background: #4440f6;
+}
+
+.flatpickr-calendar {
+  max-width: 308px;
 }
 
 .accordion {
@@ -1038,4 +1169,60 @@ input[type=checkbox] {
 
 .accordion-item.active .accordion-content {
   max-height: 500px;
+}
+
+.favorite {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+@media screen and (min-width: 768px) {
+  .favorite {
+    padding-top: 48px;
+    padding-bottom: 100px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite {
+    padding-top: 60px;
+    padding-bottom: 300px;
+  }
+}
+
+.favorite__container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(323px, auto));
+    grid-auto-rows: 675px;
+    grid-gap: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__container {
+    grid-template-columns: repeat(auto-fit, minmax(362px, auto));
+    grid-column-gap: 32px;
+    grid-row-gap: 40px;
+  }
+}
+
+.favorite__item {
+  margin: 0 auto;
+  width: 288px;
+  height: 630px;
+}
+@media screen and (min-width: 768px) {
+  .favorite__item {
+    width: 353px;
+    height: 675px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .favorite__item {
+    width: 395px;
+  }
 }/*# sourceMappingURL=index.css.map */
