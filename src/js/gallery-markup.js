@@ -12,7 +12,10 @@ export default function galleryMarkup(results) {
       }) => `        
   <div class="card" id=${id}>
     <div class="card__img-wrapper">
-      <img class="card__img" src="${media?.[0]?.['media-metadata']?.[2]?.url}" alt="${media?.[0]?.caption}"> 
+      <img class="card__img" src="${
+        media?.[0]?.['media-metadata']?.[2]?.url ||
+        'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'
+      }" alt="${media?.[0]?.caption}"> 
       <span class="card__category">${section}</span>
       <div class="card__favorite">
         <span class="card__favText">Add to favorite</span>

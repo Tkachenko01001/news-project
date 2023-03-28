@@ -151,8 +151,7 @@ btnNextPg.textContent = 'Next';
 // let startPage = 0;
 
 // Render popular news on Load
-async function renderCard(perPage, page) { 
-  // galleryNews.innerHTML = ''; 
+async function renderCard(perPage, page) {
   try {
     const data = await NYTNewsAPI.getPopularNews();
     const markup = galleryMarkup(
@@ -163,10 +162,12 @@ async function renderCard(perPage, page) {
     console.log(error);
   }
 }
+
 let perPage;
+
 if (window.innerWidth < 768) {
   perPage = 4;
-} else if (window.innerWidth >= 768 & window.innerWidth <1280) {
+} else if ((window.innerWidth >= 768) & (window.innerWidth < 1280)) {
   perPage = 7;
 } else {
   perPage = 8;
@@ -178,21 +179,17 @@ function renderPageOnButtonClick(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
-  // const page = e.target.dataset.page;
-  // const ele = e.target;
+  const pageNumber = parseInt(e.target.dataset.page, 10);
 
-  // if (ele.dataset.page) {
-    const pageNumber = parseInt(e.target.dataset.page, 10);
+  valuePage.curPage = pageNumber;
 
-    valuePage.curPage = pageNumber;
-   
-    pagination(valuePage);
+  pagination(valuePage);
 
-    handleButtonLeft();
-    handleButtonRight();
-  
+  handleButtonLeft();
+  handleButtonRight();
+
   galleryNews.innerHTML = '';
-  // weatherCardMarkup(lat, lon);
+
   renderCard(perPage, pageNumber);
 }
 
