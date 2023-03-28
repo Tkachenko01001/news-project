@@ -694,6 +694,7 @@ body {
 }
 .card .card__img {
   height: 100%;
+  width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
@@ -869,12 +870,12 @@ body {
   align-items: center;
   color: #ffffff;
 }
-.card__favBtn {
+.card .card__favBtn {
   position: absolute;
   display: flex;
   padding: 0;
   cursor: default;
-  right: 3px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   width: 16px;
@@ -886,14 +887,14 @@ body {
   background-color: inherit;
   fill: #ffffff;
 }
-.card__heart--fill {
+.card .card__heart--fill {
   position: absolute;
   cursor: pointer;
   fill: #4b48db;
   animation-name: beat;
   animation-duration: 1s;
 }
-.card__heart {
+.card .card__heart {
   position: absolute;
   cursor: pointer;
   animation-name: unbeat;

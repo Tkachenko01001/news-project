@@ -46,6 +46,7 @@
 
     .card__img {
     height: 100%;
+    width: 100%;
     object-fit: cover;
     overflow: hidden;
     border-radius: 4px;
@@ -215,12 +216,12 @@
     color: $white-color;
   }
 
-  &__favBtn {
+    .card__favBtn {
     position: absolute;
     display: flex;
     padding: 0;
     cursor: default;
-    right: 3px;
+    right: 8px;
     top: 50%;
     transform: translateY(-50%);
     width: 16px;
@@ -233,7 +234,7 @@
     fill: $white-color;
   }
 
-  &__heart--fill {
+    .card__heart--fill {
     position: absolute;
     cursor: pointer;
     fill: $switcher-accent-color;
@@ -241,7 +242,7 @@
     animation-duration: 1s;
   }
 
-  &__heart {
+    .card__heart {
     position: absolute;
     cursor: pointer;
     animation-name: unbeat;
