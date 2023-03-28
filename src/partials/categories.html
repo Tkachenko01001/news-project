@@ -1,6 +1,24 @@
-<div id="buttonContainer" class="button-container container">
+
+<div class="container-main container">
+<div id="buttonContainer" class="button-container">
     <button id="moreButton" type="button">Categories</button>
+    <!-- Calendar -->
+    <div id="modal" class="hidden">
+      <div id="modalContent"></div>
   </div>
-  <div id="modal">
-    <div id="modalContent"></div>
   </div>
+<div class="date">
+  <div class="date-input">
+    <input type="text" class="date-picker" id="date-picker" placeholder="Search date..." />
+    <svg class="date-svg-calendar flatpickr-input" width="20px" height="20px">
+      <use href="./images/symbol-defs.svg#icon-date"></use>
+    </svg>
+    <svg class="date-down" width="20" height="20">
+      <use href="./images/symbol-defs.svg#icon-down"></use>
+    </svg>
+    <svg class="date-up" width="20" height="20">
+      <use href="./images/symbol-defs.svg#icon-up"></use>
+    </svg>
+  </div>
+</div>
+</div>

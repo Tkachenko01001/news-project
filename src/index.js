@@ -215,3 +215,11 @@ galleryNews.addEventListener('click', e => {
       'Add to favorite';
   }
 });
+function ifEmptyQuery() {
+  const emptyQuerySection = document.querySelector('.js-empty-query');
+  if (galleryNews.children.length === 0) {
+    emptyQuerySection.classList.remove('empty-query');
+  } else {
+    emptyQuerySection.classList.add('empty-query');
+  }
+}
