@@ -9,7 +9,7 @@ import './js/add-to-read';
 import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
 import { format } from 'date-fns';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const galleryNews = document.querySelector('.galleryNews');
 const buttonContainer = document.querySelector('.button-container');
@@ -58,7 +58,7 @@ async function renderCard() {
      .join('');
       galleryNews.insertAdjacentHTML('beforeend', finalResult)
   } catch (error) {
-    console.log(error);
+    Notify.warning(error);
   }
 }
 
@@ -78,6 +78,7 @@ async function renderSearchQueryCard(query, filter) {
   try {
     const data = await NYTNewsAPI.getNewsBySearchQuery(query, filter);
     if (!data.response.docs) {
+      Notify.warning("error");
       return;
     } else {
       const finalResult = data.response.docs
@@ -115,13 +116,13 @@ async function renderSearchQueryCard(query, filter) {
               <span class="card__read-more">Read more</span>
             </a>
           </div>
-        `
+        `;
         })
         .join('');
       galleryNews.insertAdjacentHTML('beforeend', finalResult);
     }
   } catch (error) {
-      console.log(error);
+      Notify.warning(error);
     }
   }
 
@@ -146,7 +147,8 @@ buttonsInModal.addEventListener('click', e => {
 async function renderSearchByCategoryCard(categ) {
       const data = await NYTNewsAPI.getNewsByCategories(categ);
      if (!data.results) {
-       return;
+        Notify.warning("error");
+       return
      } else {
        try {
        const finalResult = data.results
@@ -192,7 +194,7 @@ async function renderSearchByCategoryCard(categ) {
            .join('');
          galleryNews.insertAdjacentHTML('beforeend', finalResult);
        } catch (error) {
-         console.log(error);
+         Notify.warning(error);
        }
      }
 }
