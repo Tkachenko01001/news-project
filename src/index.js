@@ -8,6 +8,7 @@ import './js/current-date';
 import './js/add-to-read';
 import './js/add-to-favorite';
 import { NYTNewsAPI } from './js/fetchNews';
+import { format, parse } from 'date-fns';
 
 const galleryNews = document.querySelector('.galleryNews');
 const buttonContainer = document.querySelector('.button-container');
@@ -90,7 +91,7 @@ async function renderSearchQueryCard(query, filter) {
           const newsCategory = [e][0].section_name;
           const title = [e][0].headline?.main;
           const subscribe = [e][0].abstract;
-          const date = Date.parse([e][0].pub_date);
+          const date = format(Date.parse([e][0].pub_date), 'yyyy-MM-dd');
           const url = [e][0].web_url;
           const ID = [e][0].uri;
           const cardFavText = 'Add to favorites';
@@ -159,7 +160,7 @@ async function renderSearchByCategoryCard(categ) {
           const newsCategory = [e][0]?.section;
           const title = [e][0]?.title;
           const subscribe = [e][0]?.abstract;
-          const date = Date.parse([e][0]?.published_date);
+          const date = format(Date.parse([e][0]?.published_date), 'yyyy-MM-dd');
           const url = [e][0].url;
           const ID = [e][0].uri;
           const cardFavText = 'Add to favorites';
