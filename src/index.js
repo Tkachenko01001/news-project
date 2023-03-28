@@ -66,12 +66,17 @@ renderCard();
 
 // Пошук за пошуковим запитом:
 const formSearch = document.querySelector('.search-form');
+const searchBar = document.querySelector('.search-bar form');
 formSearch.addEventListener('submit', handleSubmit);
+searchBar.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
+  if (e.target.style.display === 'none') {
+    return;
+  }
   galleryNews.innerHTML = '';
-  renderSearchQueryCard(formSearch.elements['night-input'].value, '');
+  renderSearchQueryCard(e.target.querySelector('input').value, '');
 }
 
 async function renderSearchQueryCard(query, filter) {
