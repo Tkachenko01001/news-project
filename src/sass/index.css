@@ -77,8 +77,7 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(50%);
-          clip-path: inset(50%);
+  clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -620,8 +619,7 @@ body {
 }
 .card .card__img {
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -1003,4 +1001,41 @@ input[type=checkbox] {
   display: flex;
   align-items: center;
   fill: #4440f7;
+}
+
+.accordion {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-top: 1px solid #ccc;
+}
+
+.accordion-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.accordion-header:hover {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  padding: 10px;
+  background-color: #fff;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion-item.active .accordion-header {
+  background-color: #ddd;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
 }/*# sourceMappingURL=index.css.map */
