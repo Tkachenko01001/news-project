@@ -56,6 +56,7 @@ function filterCardsByDate(selectedDate) {
     .reverse()
     .join('-');
   const galleryNewsRefs = document.querySelector('.galleryNews');
+  const emptyQuerySection = document.querySelector('.js-empty-query');
   if (allCards.length === 0)
     allCards = [...galleryNewsRefs.querySelectorAll('.card')];
   const cardsByDate = allCards.filter(
@@ -63,4 +64,9 @@ function filterCardsByDate(selectedDate) {
   );
   galleryNewsRefs.innerHTML = '';
   galleryNewsRefs.append(...cardsByDate);
+  if (cardsByDate.length === 0) {
+    emptyQuerySection.classList.remove('empty-query');
+  } else {
+    emptyQuerySection.classList.add('empty-query');
+  }
 }
