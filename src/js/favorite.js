@@ -35,7 +35,7 @@ function renderFavoriteList(cards) {
         <h2 class="card__title">${title}</h2>
         <p class="card__subscribe">${subscribe}</p>
         <span class="card__date">${date}</span>
-        <a href="${url}">
+        <a href="${url}" target="_blank">
           <span class="card__read-more">Read more</span>
         </a>
       </div>
@@ -53,7 +53,8 @@ function removeFromFavorite(e) {
   if (e.target.nodeName !== 'path') {
     return;
   }
-  const unFavoriteCard = e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
+  const unFavoriteCard =
+    e.target.parentNode.parentNode.parentNode.parentNode.parentNode;
   const indexCard = favoriteNews.findIndex(
     card => card.id === unFavoriteCard.id
   );
