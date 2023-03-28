@@ -9,6 +9,7 @@ const borderEl = document.querySelector('.header');
 const mobileMenu = document.querySelector('.menu-container');
 const inputEl = document.querySelector('#search');
 const nightInput = document.querySelector('[name="night-input"]')
+const dateInput = document.querySelector('.date-picker')
 
 const THEME_KEY = 'selected_theme';
 
@@ -28,6 +29,7 @@ const applyTheme = (isNightTheme) => {
     mobileMenu.classList.add('menu-container--dark');
     inputEl.classList.add('search-input--night');
     nightInput.classList.add('search-input--night')
+    dateInput.classList.add('date-picker--night')
   }
   
   else {
@@ -42,6 +44,7 @@ const applyTheme = (isNightTheme) => {
     mobileMenu.classList.remove('menu-container--dark');
     inputEl.classList.remove('search-input--night');
     nightInput.classList.remove('search-input--night');
+    dateInput.classList.remove('date-picker--night');
   }
 }
 

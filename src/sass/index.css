@@ -77,7 +77,8 @@ body {
   border: 0;
   padding: 0;
   clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
   margin: -1px;
 }
 
@@ -619,7 +620,8 @@ body {
 }
 .card .card__img {
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   overflow: hidden;
   border-radius: 4px;
 }
@@ -1040,6 +1042,10 @@ body .date-label {
   }
 }
 
+.date-picker--night {
+  border: 1px solid #f4f4f4;
+}
+
 .date-picker .flatpickr-input.active,
 .date-picker .flatpickr-input:hover {
   outline: none;
@@ -1054,10 +1060,17 @@ body .date-label {
   font-size: 24px;
 }
 
+:-moz-placeholder-shown {
+  font-size: 12px;
+}
+
 :placeholder-shown {
   font-size: 12px;
 }
 @media screen and (min-width: 768px) {
+  :-moz-placeholder-shown {
+    font-size: 14px;
+  }
   :placeholder-shown {
     font-size: 14px;
   }
@@ -1106,6 +1119,11 @@ body .flatpickr-months .flatpickr-next-month {
 
 body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
+}
+
+.date-input:hover ::-moz-placeholder, .date-input:focus-within ::-moz-placeholder {
+  color: white;
+  opacity: 1;
 }
 
 .date-input:hover ::placeholder,

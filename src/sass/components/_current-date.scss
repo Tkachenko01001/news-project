@@ -67,6 +67,10 @@ body .date-label {
     width: 190px;
   }
 }
+.date-picker--night {
+  border: 1px solid #f4f4f4;
+}
+
 
 .date-picker .flatpickr-input.active,
 .date-picker .flatpickr-input:hover {
