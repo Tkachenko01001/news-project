@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 // import './js/newsCard';
 import './js/theme-switcher';
 import './weather-card-markup';

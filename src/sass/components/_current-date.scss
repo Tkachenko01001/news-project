@@ -68,14 +68,14 @@ body .date-label {
   }
 }
 
-/* .date-picker .flatpickr-input.active,
+.date-picker .flatpickr-input.active,
 .date-picker .flatpickr-input:hover {
   outline: none;
   border: 1px solid #4440f6;
   color: #ffffff;
   background-color: #4440f6;
   fill: white;
-} */
+}
 .date-label {
   margin-right: 37px;
   font-size: 24px;
@@ -137,16 +137,19 @@ body .flatpickr-months .flatpickr-prev-month {
   background-color: #4440f6;
 }
 
-/* .date-picker .flatpickr-input.active ::placeholder,
+.date-picker .flatpickr-input.active ::placeholder,
 .date-picker:hover ::placeholder {
   color: white;
   opacity: 1;
-} */
+}
 
-/* .flatpickr-input.date-picker.active:hover ~.date-down,
-.flatpickr-input.date-picker.active:hover ~.date-svg-calendar {
+
+.flatpickr-input.date-picker.active:hover ~.date-down,
+.flatpickr-input.date-picker.active:hover ~.date-svg-calendar,
+.flatpickr-input.date-picker.active:focus-within ~.date-down,
+.flatpickr-input.date-picker.active:focus-within ~.date-svg-calendar {
   fill: white;
-} */
+}
 .flatpickr-calendar .flatpickr-day.selected {
   background: $accent-color;
 }
