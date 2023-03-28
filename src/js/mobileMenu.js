@@ -24,6 +24,8 @@
       mobileMenuRef.classList.remove('menu-container--open');
       headerRef.classList.remove('header--menu-open');
       menuBtnRef.classList.remove('menu__button--open');
+      inputBox.classList.remove('search-bar--hidden');
+      inputBox.classList.remove('open');
       menuBtnRef.setAttribute('aria-expanded', false);
       document.body.style.overflow = '';
     });
