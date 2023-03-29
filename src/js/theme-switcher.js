@@ -29,7 +29,13 @@ const applyTheme = (isNightTheme) => {
     mobileMenu.classList.add('menu-container--dark');
     inputEl.classList.add('search-input--night');
     nightInput.classList.add('search-input--night')
-    dateInput.classList.add('date-picker--night')
+    if (dateInput) {
+      if (isNightTheme) {
+        dateInput.classList.add('date-picker--night');
+      } else {
+        dateInput.classList.remove('date-picker--night');
+      }
+    }
   }
   
   else {
@@ -62,5 +68,4 @@ applyTheme(isNightTheme);
 
 labelEl.addEventListener('click', onClickSwitch);
 
-export {applyTheme, onClickSwitch};
 

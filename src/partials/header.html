@@ -3,12 +3,14 @@
         <nav class="header__nav">
             <a href="./index.html" class="header__logo">News</a>
             <div class="search-bar">
-                <form>
-                    <div class="icon-container">
-                        <svg width="20px" height="19px" class="search-icon">
+                <form class="search-bar__form">
+                    <!-- <div class="icon-container"> -->
+                    <button type="submit" class="icon-container">
+                        <svg width="20px" height="20px" class="search-icon-mob">
                             <use href="./images/symbol-defs.svg#icon-search"></use>
                         </svg>
-                    </div>
+                    </button>
+                    <!-- </div> -->
 
                     <input class="search-input" id="search" type="search" placeholder="Search">
                 </form>
@@ -39,11 +41,11 @@
                 </ul>
                 <div class="input-box">
                     <form class="search-form" name="searchFormName" type="submit">
-                        <div class="icon-container">
+                        <button type="submit" class="search-button">
                             <svg width="20px" height="19px" class="search-icon">
                                 <use href="./images/symbol-defs.svg#icon-search"></use>
                             </svg>
-                        </div>
+                        </button>
 
                         <input class="search-input" name="night-input" id="search" type="search" placeholder="Search">
                     </form>
