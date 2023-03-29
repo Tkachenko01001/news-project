@@ -84,7 +84,7 @@ body {
 
 .empty-query__img {
   margin: 0 auto;
-  background-color: #f4f4f4;
+  mix-blend-mode: multiply;
 }
 
 .empty-query {
@@ -97,7 +97,6 @@ body {
   line-height: 27px;
   text-align: center;
   letter-spacing: -0.01em;
-  color: #111321;
 }
 @media screen and (min-width: 768px) {
   .empty-query__title {
@@ -1548,7 +1547,6 @@ body .flatpickr-months .flatpickr-prev-month {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  background: #f4f4f4;
   gap: 4px;
   padding-top: 40px;
   padding-bottom: 60px;
