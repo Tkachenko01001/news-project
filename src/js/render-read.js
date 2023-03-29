@@ -5,6 +5,7 @@ const LOCALSTORAGE_KEY_READ = 'read';
 let readNews = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY_READ));
 
 function renderReadList(cards) {
+
   const markup = cards
     .map(
       ({
@@ -19,7 +20,11 @@ function renderReadList(cards) {
         url,
       }) => {
         return `
-        <div class="card" id=${id}>
+
+        <div class="accordion-item">
+     <div class="accordion-header">${date}</div>
+     <div class="accordion-content"></div>
+     <div class="card" id=${id}>
         <div class="card__img-wrapper">
           <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}"> 
           <span class="card__category">${newsCategory}</span>         
@@ -39,6 +44,7 @@ function renderReadList(cards) {
           <span class="card__read-more">Read more</span>
         </a>
       </div>
+    </div>
       `;
       }
     )
@@ -48,3 +54,19 @@ function renderReadList(cards) {
 }
 
 renderReadList(readNews);
+
+let result = {};
+readNews.map((item) => {
+  const date = result[item.date];
+  if (date) {
+    result[item.date].push(item);
+    return;
+  }
+  return result[item.date] = [item];
+});
+
+const accordion = `
+    <div class="accordion-item">
+     <div class="accordion-header">${dataNow}</div>
+     <div class="accordion-content">${markup}</div>
+    </div>`;
