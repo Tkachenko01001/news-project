@@ -22,8 +22,13 @@ function renderReadList(cards) {
         return `
 
         <div class="accordion-item">
-     <div class="accordion-header">${date}</div>
-     <div class="accordion-content"></div>
+     <div class="accordion-header">${date}
+     <button class="accordion-button"><svg width="9" height="15" class="icon-down">
+     <use href="./images/symbol-defs.svg#icon-down"></use>
+      </svg></button>
+      <hr class="accordion-line" >
+     </div>
+     <div class="accordion-content">
      <div class="card" id=${id}>
         <div class="card__img-wrapper">
           <img class="card__img" src="${mediaUrl}" alt="${mediaAlt}"> 
@@ -43,6 +48,7 @@ function renderReadList(cards) {
         <a href="${url}" target="_blank">
           <span class="card__read-more">Read more</span>
         </a>
+        </div>
       </div>
     </div>
       `;
