@@ -31,7 +31,7 @@
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4",
-    "sharp": "^0.29.3"
+    "sharp": "^0.32.0"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
 }
