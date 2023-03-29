@@ -1319,37 +1319,31 @@ body .flatpickr-months .flatpickr-prev-month {
 }
 
 .accordion {
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  font-family: "Poppins";
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  color: #111321;
   overflow: hidden;
 }
-
-.accordion-item {
-  border-top: 1px solid #ccc;
-}
-
 .accordion-header {
-  background-color: #f1f1f1;
+  display: block;
+  border-bottom: 1px solid #929292;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-  padding: 10px;
 }
-
-.accordion-header:hover {
-  background-color: #ddd;
+.accordion-header__icon {
+  margin-left: 8px;
+  transition: transform 200ms ease-in-out;
 }
-
+.active .accordion-header__icon {
+  transform: rotate(180deg);
+  transform: scale(-1);
+}
 .accordion-content {
-  background-color: #fff;
   transition: max-height 0.3s ease-in-out;
   max-height: 0;
   overflow: hidden;
 }
-
-.accordion-item.active .accordion-header {
-  background-color: #ddd;
-}
-
 .accordion-item.active .accordion-content {
   max-height: 500px;
 }
