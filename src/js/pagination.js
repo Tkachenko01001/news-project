@@ -186,7 +186,7 @@ searchBar.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
-  if (e.target.style.display === 'none') {
+  if (e.target.parentNode.clientWidth === 15) {
     return;
   }
   galleryNews.innerHTML = '';
