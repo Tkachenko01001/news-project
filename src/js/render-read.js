@@ -70,9 +70,3 @@ readNews.map((item) => {
   }
   return result[item.date] = [item];
 });
-
-const accordion = `
-    <div class="accordion-item">
-     <div class="accordion-header">${dataNow}</div>
-     <div class="accordion-content">${markup}</div>
-    </div>`;
