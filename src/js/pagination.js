@@ -91,7 +91,7 @@ document
     handleButton(e.target);
   });
 
-function handleButton(element) {  
+function handleButton(element) {
   if (element.classList.contains('first-page')) {
     valuePage.curPage = 1;
   } else if (element.classList.contains('last-page')) {
@@ -142,7 +142,7 @@ async function renderCard(perPage, page) {
       data.results.splice(perPage * (page - 1), perPage * page)
     );
     galleryNews.insertAdjacentHTML('beforeend', markup);
-  } catch (error) {  
+  } catch (error) {
     Notify.warning(error);
   }
 }
@@ -159,7 +159,7 @@ if (window.innerWidth < 768) {
 
 pg.addEventListener('click', renderPageOnButtonClick);
 
-function renderPageOnButtonClick(e) {  
+function renderPageOnButtonClick(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
@@ -186,7 +186,7 @@ searchBar.addEventListener('submit', handleSubmit);
 
 function handleSubmit(e) {
   e.preventDefault();
-  if (e.target.style.display === 'none') {
+  if (e.target.parentNode.clientWidth === 15) {
     return;
   }
   galleryNews.innerHTML = '';
@@ -197,7 +197,7 @@ async function renderSearchQueryCard(query, filter) {
   try {
     const data = await NYTNewsAPI.getNewsBySearchQuery(query, filter);
     if (!data.response.docs) {
-      Notify.warning("error");
+      Notify.warning('error');
       return;
     } else {
       const finalResult = data.response.docs
@@ -239,12 +239,12 @@ async function renderSearchQueryCard(query, filter) {
         })
         .join('');
       galleryNews.insertAdjacentHTML('beforeend', finalResult);
+      ifEmptyQuery();
     }
   } catch (error) {
-      Notify.warning(error);
-    }
+    Notify.warning(error);
   }
-
+}
 
 // Пошук за категорією:
 
@@ -264,29 +264,26 @@ buttonsInModal.addEventListener('click', e => {
 });
 
 async function renderSearchByCategoryCard(categ) {
-      const data = await NYTNewsAPI.getNewsByCategories(categ);
-     if (!data.results) {
-        Notify.warning("error");
-       return
-     } else {
-       try {
-       const finalResult = data.results
-         .map(e => {
-           const img = [e][0]?.multimedia?.[2]?.url;
-           const mediaUrl = img
-             ? img
-             : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
-           const mediaAlt = [e][0]?.multimedia?.[2]?.caption;
-           const newsCategory = [e][0]?.section;
-           const title = [e][0]?.title;
-           const subscribe = [e][0]?.abstract;
-           const date = format(
-             Date.parse([e][0]?.published_date),
-             'yyyy-MM-dd'
-           );
-           const url = [e][0].url;
-           const ID = [e][0].uri;
-           const cardFavText = 'Add to favorites';
+  const data = await NYTNewsAPI.getNewsByCategories(categ);
+  if (!data.results) {
+    Notify.warning('error');
+    return;
+  } else {
+    try {
+      const finalResult = data.results
+        .map(e => {
+          const img = [e][0]?.multimedia?.[2]?.url;
+          const mediaUrl = img
+            ? img
+            : 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/390px-No-Image-Placeholder.svg.png';
+          const mediaAlt = [e][0]?.multimedia?.[2]?.caption;
+          const newsCategory = [e][0]?.section;
+          const title = [e][0]?.title;
+          const subscribe = [e][0]?.abstract;
+          const date = format(Date.parse([e][0]?.published_date), 'yyyy-MM-dd');
+          const url = [e][0].url;
+          const ID = [e][0].uri;
+          const cardFavText = 'Add to favorites';
           return `
           <div class="card" id="${ID}">
             <div class="card__img-wrapper">
@@ -308,14 +305,15 @@ async function renderSearchByCategoryCard(categ) {
               <span class="card__read-more">Read more</span>
             </a>
           </div>
-        `
-         })
-           .join('');
-         galleryNews.insertAdjacentHTML('beforeend', finalResult);
-       } catch (error) {
-         Notify.warning(error);
-       }
-     }
+        `;
+        })
+        .join('');
+      galleryNews.insertAdjacentHTML('beforeend', finalResult);
+      ifEmptyQuery();
+    } catch (error) {
+      Notify.warning(error);
+    }
+  }
 }
 
 function ifEmptyQuery() {
