@@ -1,57 +1,68 @@
-import axios from 'axios';
 import { NYTNewsAPI } from './fetchNews';
 import { format } from 'date-fns';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-// import RENDERCARD from './renderCard';
-// import FETCHNEWSBYCATEGORY from './fetchNewsByCategory';
 import '../weather-card-markup';
 import { NYTNewsAPI } from './fetchNews';
 import galleryMarkup from './gallery-markup';
 
 const galleryNews = document.querySelector('.galleryNews');
+
+
 const buttonContainer = document.querySelector('.button-container');
 const buttonsInModal = document.querySelector('#modalContent');
-
 const pg = document.getElementById('pagination');
 const btnNextPg = document.querySelector('button.next-page');
 const btnPrevPg = document.querySelector('button.prev-page');
 const btnFirstPg = document.querySelector('button.first-page');
 const btnLastPg = document.querySelector('button.last-page');
-const valuePage = {
+const formSearch = document.querySelector('.search-form');
+const searchBar = document.querySelector('.search-bar form');
+const modal = document.getElementById('modal');
+btnPrevPg.textContent = 'Prew';
+btnNextPg.textContent = 'Next';
+
+let allNews = [];
+let valuePage = {
   curPage: 1,
   numLinksTwoSide: 1,
-  totalPages: 10,
+  totalPages: 5,
 };
 
-pagination();
+if (window.innerWidth < 768) {
+  valuePage.totalPages = 5;
+} else {
+  valuePage.totalPages = 3;
+}
+
+let perPage;
+let pageNumber;
+
+if (window.innerWidth < 768) {
+  perPage = 4;
+} else if ((window.innerWidth >= 768) & (window.innerWidth < 1280)) {
+  perPage = 7;
+} else {
+  perPage = 8;
+}
 
 function pagination() {
   const { totalPages, curPage, numLinksTwoSide: delta } = valuePage;
-
-  const range = delta + 4; // use for handle visible number of links left side
-
+  const range = delta + 4; 
   let render = '';
   let renderTwoSide = '';
   let dot = `<li class="pg-item dot_style"><a class="pg-link">...</a></li>`;
-  let countTruncate = 0; // use for ellipsis - truncate left side or right side
-
-  // use for truncate two side
+  let countTruncate = 0; 
   const numberTruncateLeft = curPage - delta;
   const numberTruncateRight = curPage + delta;
-
   let active = '';
   for (let pos = 1; pos <= totalPages; pos++) {
-    active = pos === curPage ? 'active' : '';
-
-    // truncate
+    active = pos === curPage ? 'active' : '';   
     if (totalPages >= 2 * range - 1) {
-      if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {
-        // truncate 2 side
+      if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {        
         if (pos >= numberTruncateLeft && pos <= numberTruncateRight) {
           renderTwoSide += renderPage(pos, active);
         }
-      } else {
-        // truncate left side or right side
+      } else {       
         if (
           (curPage < range && pos <= range) ||
           (curPage > totalPages - range && pos >= totalPages - range + 1) ||
@@ -64,12 +75,10 @@ function pagination() {
           if (countTruncate === 1) render += dot;
         }
       }
-    } else {
-      // not truncate
+    } else {     
       render += renderPage(pos, active);
     }
   }
-
   if (renderTwoSide) {
     renderTwoSide =
       renderPage(1) + dot + renderTwoSide + dot + renderPage(totalPages);
@@ -84,12 +93,6 @@ function renderPage(index, active = '') {
         <a class="pg-link" href="#">${index}</a>
     </li>`;
 }
-
-document
-  .querySelector('.page-container')
-  .addEventListener('click', function (e) {
-    handleButton(e.target);
-  });
 
 function handleButton(element) {
   if (element.classList.contains('first-page')) {
@@ -109,6 +112,7 @@ function handleButton(element) {
   }
   pagination();
 }
+
 function handleButtonLeft() {
   if (valuePage.curPage === 1) {
     btnPrevPg.disabled = true;
@@ -118,9 +122,9 @@ function handleButtonLeft() {
     btnFirstPg.disabled = false;
   }
 }
+
 function handleButtonRight() {
-  if (valuePage.curPage === valuePage.totalPages) {
-    // console.log(valuePage.curPage);
+  if (valuePage.curPage === valuePage.totalPages) {    
     btnNextPg.disabled = true;
     btnLastPg.disabled = true;
   } else {
@@ -129,17 +133,12 @@ function handleButtonRight() {
   }
 }
 
-btnPrevPg.textContent = 'Prew';
-btnNextPg.textContent = 'Next';
-
-// let startPage = 0;
-
-// Render popular news on Load
-async function renderCard(perPage, page) {
+// Render page on Load
+async function renderCard() {
   try {
     const data = await NYTNewsAPI.getPopularNews();
     const markup = galleryMarkup(
-      data.results.splice(perPage * (page - 1), perPage * page)
+      data.results     
     );
     galleryNews.insertAdjacentHTML('beforeend', markup);
   } catch (error) {
@@ -147,43 +146,27 @@ async function renderCard(perPage, page) {
   }
 }
 
-let perPage;
-
-if (window.innerWidth < 768) {
-  perPage = 4;
-} else if ((window.innerWidth >= 768) & (window.innerWidth < 1280)) {
-  perPage = 7;
-} else {
-  perPage = 8;
-}
-
-pg.addEventListener('click', renderPageOnButtonClick);
-
 function renderPageOnButtonClick(e) {
   if (e.target.nodeName !== 'LI') {
     return;
   }
-  const pageNumber = parseInt(e.target.dataset.page, 10);
-
+  pageNumber = parseInt(e.target.dataset.page, 10);
+  // pageNumber = e.target.dataset.page;
   valuePage.curPage = pageNumber;
-
   pagination(valuePage);
-
   handleButtonLeft();
   handleButtonRight();
-
-  galleryNews.innerHTML = '';
-
-  renderCard(perPage, pageNumber);
+  allNews = [...galleryNews.querySelectorAll('.card')];
+  const newsPerPage = allNews.slice(
+    perPage * (pageNumber - 1),
+    perPage * pageNumber
+  );
+  allNews.map(item => (item.style.display = 'none'));
+  newsPerPage.map(item => (item.style.display = 'block'));
+  // console.log(galleryNews, allNews, newsPerPage);
 }
 
-renderCard(perPage, 1);
 // Пошук за пошуковим запитом:
-const formSearch = document.querySelector('.search-form');
-const searchBar = document.querySelector('.search-bar form');
-formSearch.addEventListener('submit', handleSubmit);
-searchBar.addEventListener('submit', handleSubmit);
-
 function handleSubmit(e) {
   e.preventDefault();
   if (e.target.parentNode.clientWidth === 15) {
@@ -248,21 +231,6 @@ async function renderSearchQueryCard(query, filter) {
 
 // Пошук за категорією:
 
-buttonContainer.addEventListener('click', e => {
-  if (e.target.closest('.button-ctg')) {
-    galleryNews.innerHTML = '';
-    renderSearchByCategoryCard(e.target.textContent.toLowerCase());
-  }
-});
-const modal = document.getElementById('modal');
-buttonsInModal.addEventListener('click', e => {
-  if (e.target.closest('.more-item-categories')) {
-    modal.style.display = 'none';
-    galleryNews.innerHTML = '';
-    renderSearchByCategoryCard(encodeURI(e.target.textContent.toLowerCase()));
-  }
-});
-
 async function renderSearchByCategoryCard(categ) {
   const data = await NYTNewsAPI.getNewsByCategories(categ);
   if (!data.results) {
@@ -324,3 +292,28 @@ function ifEmptyQuery() {
     emptyQuerySection.classList.add('empty-query');
   }
 }
+
+pagination();
+renderCard();
+
+formSearch.addEventListener('submit', handleSubmit);
+searchBar.addEventListener('submit', handleSubmit);
+pg.addEventListener('click', renderPageOnButtonClick);
+buttonContainer.addEventListener('click', e => {
+  if (e.target.closest('.button-ctg')) {
+    galleryNews.innerHTML = '';
+    renderSearchByCategoryCard(e.target.textContent.toLowerCase());
+  }
+});
+buttonsInModal.addEventListener('click', e => {
+  if (e.target.closest('.more-item-categories')) {
+    modal.style.display = 'none';
+    galleryNews.innerHTML = '';
+    renderSearchByCategoryCard(encodeURI(e.target.textContent.toLowerCase()));
+  }
+});
+document
+  .querySelector('.page-container')
+  .addEventListener('click', function (e) {
+    handleButton(e.target);
+  });
