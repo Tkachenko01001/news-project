@@ -7,7 +7,6 @@ import galleryMarkup from './gallery-markup';
 
 const galleryNews = document.querySelector('.galleryNews');
 
-
 const buttonContainer = document.querySelector('.button-container');
 const buttonsInModal = document.querySelector('#modalContent');
 const pg = document.getElementById('pagination');
@@ -47,22 +46,22 @@ if (window.innerWidth < 768) {
 
 function pagination() {
   const { totalPages, curPage, numLinksTwoSide: delta } = valuePage;
-  const range = delta + 4; 
+  const range = delta + 4;
   let render = '';
   let renderTwoSide = '';
   let dot = `<li class="pg-item dot_style"><a class="pg-link">...</a></li>`;
-  let countTruncate = 0; 
+  let countTruncate = 0;
   const numberTruncateLeft = curPage - delta;
   const numberTruncateRight = curPage + delta;
   let active = '';
   for (let pos = 1; pos <= totalPages; pos++) {
-    active = pos === curPage ? 'active' : '';   
+    active = pos === curPage ? 'active' : '';
     if (totalPages >= 2 * range - 1) {
-      if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {        
+      if (numberTruncateLeft > 3 && numberTruncateRight < totalPages - 3 + 1) {
         if (pos >= numberTruncateLeft && pos <= numberTruncateRight) {
           renderTwoSide += renderPage(pos, active);
         }
-      } else {       
+      } else {
         if (
           (curPage < range && pos <= range) ||
           (curPage > totalPages - range && pos >= totalPages - range + 1) ||
@@ -75,7 +74,7 @@ function pagination() {
           if (countTruncate === 1) render += dot;
         }
       }
-    } else {     
+    } else {
       render += renderPage(pos, active);
     }
   }
@@ -124,7 +123,7 @@ function handleButtonLeft() {
 }
 
 function handleButtonRight() {
-  if (valuePage.curPage === valuePage.totalPages) {    
+  if (valuePage.curPage === valuePage.totalPages) {
     btnNextPg.disabled = true;
     btnLastPg.disabled = true;
   } else {
@@ -137,10 +136,9 @@ function handleButtonRight() {
 async function renderCard() {
   try {
     const data = await NYTNewsAPI.getPopularNews();
-    const markup = galleryMarkup(
-      data.results     
-    );
+    const markup = galleryMarkup(data.results);
     galleryNews.insertAdjacentHTML('beforeend', markup);
+   renderPageOnLoad();
   } catch (error) {
     Notify.warning(error);
   }
@@ -162,8 +160,14 @@ function renderPageOnButtonClick(e) {
     perPage * pageNumber
   );
   allNews.map(item => (item.style.display = 'none'));
-  newsPerPage.map(item => (item.style.display = 'block'));
-  // console.log(galleryNews, allNews, newsPerPage);
+  newsPerPage.map(item => (item.style.display = 'block'));  
+}
+
+function renderPageOnLoad () {
+  allNews = [...galleryNews.querySelectorAll('.card')];
+  const newsOnLoad = allNews.slice(perPage); 
+  console.log(allNews, newsOnLoad); 
+  newsOnLoad.map(newItem => (newItem.style.display = 'none'));
 }
 
 // Пошук за пошуковим запитом:
@@ -222,6 +226,7 @@ async function renderSearchQueryCard(query, filter) {
         })
         .join('');
       galleryNews.insertAdjacentHTML('beforeend', finalResult);
+      renderPageOnLoad();
       ifEmptyQuery();
     }
   } catch (error) {
@@ -277,6 +282,7 @@ async function renderSearchByCategoryCard(categ) {
         })
         .join('');
       galleryNews.insertAdjacentHTML('beforeend', finalResult);
+      renderPageOnLoad();
       ifEmptyQuery();
     } catch (error) {
       Notify.warning(error);

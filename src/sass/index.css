@@ -1453,7 +1453,7 @@ body .flatpickr-months .flatpickr-prev-month {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
+  width: 42px;
   color: #111321;
   cursor: default;
   background: #f4f4f4;
@@ -1625,13 +1625,18 @@ body .flatpickr-months .flatpickr-prev-month {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
+  width: 52px;
   height: 28px;
   color: #111321;
   cursor: default;
   background: #f4f4f4;
   border: 1px solid #4440f6;
   border-radius: 2px;
+}
+@media screen and (min-width: 768px) {
+  .page-container button {
+    width: 72px;
+  }
 }
 
 .page-container button:disabled i {

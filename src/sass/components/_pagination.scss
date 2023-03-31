@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 72px;
+  width: 42px;
 
   color: $dark-color;
   cursor: default;
@@ -248,7 +248,7 @@
   align-items: center;
   justify-content: center;
 
-  width: 72px;
+  width: 52px;
   height: 28px;
 
   color: $dark-color;
@@ -261,6 +261,10 @@
   //   cursor: pointer;
   //   background-color: transparent;
   //   border: none;
+
+  @media screen and (min-width: $tablet) {
+    width: 72px;
+  }
 }
 .page-container button:disabled i {
   color: #aaadc7;
