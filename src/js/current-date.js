@@ -8,10 +8,19 @@ const dateUp = document.querySelector('.date-up');
 const dateDown = document.querySelector('.date-down');
 const calendarSvg = document.querySelector('.date-svg-calendar');
 
-// Переменная нужна для сохранения всех карточек целиком перед их фильтрацией
 let allCards = [];
-
 let selectedDate;
+
+const resetDatePicker = () => {
+  datePicker.style.backgroundColor = '#F8F8F8';
+  datePicker.style.color = '#4440F6';
+  datePicker.style.border = '1px solid #4440F6';
+  calendarSvg.style.color = '#4440F6';
+  dateDown.style.display = 'block';
+  dateDown.style.color = '#4440F6';
+  dateUp.style.display = 'none';
+  dateUp.style.color = '#4440F6';
+};
 
 const options = {
   dateFormat: 'd/m/Y',
@@ -27,43 +36,58 @@ const options = {
 
     filterCardsByDate(selectedDate);
   },
+  onClose: function () {
+    resetDatePicker();
+    clearFlatpickr();
+    filterCardsByDate(null);
+  },
 };
+
 flatpickr(datePicker, options);
 
 datePicker.addEventListener('click', changeSvg);
 
 function changeSvg() {
-  datePicker.style.backgroundColor = '#4440F6';
-  datePicker.style.color = '#F8F8F8';
-  calendarSvg.style.color = '#F8F8F8';
-  datePicker.style.border = '#4440F6';
+  selectedDate = null;
+  datePicker.selectedDates = [];
   dateDown.style.display = 'none';
   dateUp.style.display = 'block';
-  dateUp.style.color = '#F8F8F8';
 }
+
 function clearFlatpickr() {
-  datePicker.clear();
+  selectedDate = null;
+  datePicker.selectedDates = [];
 }
-// Функция фильтра по выбранной дате
+
 function filterCardsByDate(selectedDate) {
   const dateString = selectedDate
-    .toLocaleString('ru-RU', {
-      year: 'numeric',
-      month: 'numeric',
-      day: 'numeric',
-    })
-    .split('.')
-    .reverse()
-    .join('-');
+    ? selectedDate
+        .toLocaleString('ru-RU', {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+        })
+        .split('.')
+        .reverse()
+        .join('-')
+    : '';
+
   const galleryNewsRefs = document.querySelector('.galleryNews');
   const emptyQuerySection = document.querySelector('.js-empty-query');
-  if (allCards.length === 0)
+
+  if (allCards.length === 0) {
     allCards = [...galleryNewsRefs.querySelectorAll('.card')];
-  const cardsByDate = allCards.filter(
-    card => card.querySelector('.card__date').textContent === dateString
-  );
+  }
+
+  const cardsByDate = selectedDate
+    ? allCards.filter(
+        (card) => card.querySelector('.card__date').textContent === dateString
+      )
+    : allCards;
+
   galleryNewsRefs.innerHTML = '';
   galleryNewsRefs.append(...cardsByDate);
+
   if (cardsByDate.length === 0) {
     emptyQuerySection.classList.remove('empty-query');
   } else {

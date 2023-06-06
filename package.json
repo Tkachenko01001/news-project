@@ -18,12 +18,14 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@mui/material": "^5.13.4",
     "axios": "^1.3.4",
     "body-scroll-lock": "^4.0.0-beta.0",
     "date-fns": "^2.29.3",
     "flatpickr": "^4.6.13",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.6"
+    "notiflix": "^3.2.6",
+    "vanilla-js-accordion": "^1.1.3"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
